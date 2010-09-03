@@ -1,0 +1,354 @@
+<html>
+<head>
+<script type="text/javascript" src="scripts/shCore.js"></script>
+<link href="styles/shCore.css" rel="stylesheet" type="text/css" />
+<link href="styles/shThemeDefault.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="scripts/shBrushCSharp.js"></script>
+
+<script type="text/javascript">
+     SyntaxHighlighter.all()
+</script>
+
+</head>
+<body>
+<script type="syntaxhighlighter" class="brush: csharp"><![CDATA[
+using System;
+using System.IO;
+using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Runtime.InteropServices.ComTypes;
+using System.Xml;
+using FUNCDESC=System.Runtime.InteropServices.ComTypes.FUNCDESC;
+using TYPEATTR=System.Runtime.InteropServices.ComTypes.TYPEATTR;
+
+
+[ComImport,
+GuidAttribute("00020405-0000-0000-C000-000000000046"),
+InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown),
+ComVisible(false)]
+public interface UCOMICreateTypeInfo
+{
+    void SetGuid(); //Sets the globally unique identifier (GUID) for the type library.
+    void SetTypeFlags(); //Sets type flags of the type description that is being created.
+    void SetDocString(string doc); //Sets the documentation string displayed by type browsers.
+    void SetHelpContext(); //Sets the Help context ID of the type description.
+    void SetVersion(); // Sets version numbers for the type description. 
+    void AddRefTypeInfo(); //Adds a type description to those referenced by the type description being created.
+    void AddFuncDesc(); //Adds a function description as a type description.
+    void AddImplType(); //Specifies an inherited interface.
+    void SetImplTypeFlags(); //Sets the attributes for an implemented or inherited interface of a type.
+    void SetAlignment(); //Specifies data alignment for types of TKIND_RECORD.
+    void SetSchema(); //?
+    void AddVarDesc(); //Adds a data member description as a type description.
+    void SetFuncAndParamNames(); //Sets the function name and names of its parameters.
+    void SetVarName(); //Sets the name of a variable.
+    void SetTypeDescAlias(); //Sets the type description for which this type description is an alias, if TYPEKIND=TKIND_ALIAS.
+    void DefineFuncAsDllEntry(); //Associates a dynamic link library (DLL) entry point with a function that has a specified index.
+    void SetFuncDocString(int index, string doc); //Sets the documentation string for a function.
+    void SetVarDocString(int index, string doc); //Sets the documentation string for a variable.
+    void SetFuncHelpContext(); //Sets the Help context identifier (ID) for a function.
+    void SetVarHelpContext(); //Sets the Help context ID for a variable.
+    void SetMops(); //Sets the opcode string for a type description.
+    void SetTypeIdldesc(); //?
+    void LayOut(); //Assigns virtual function table (VTBL) offsets for virtual functions and instance offsets for per-instance data members.
+}
+
+[ComImport,
+GuidAttribute("00020406-0000-0000-C000-000000000046"),
+InterfaceTypeAttribute(ComInterfaceType.InterfaceIsIUnknown),
+ComVisible(false)]
+public interface UCOMICreateTypeLib
+{
+    void CreateTypeInfo();
+    void SetName();
+    void SetVersion();
+    void SetGuid();
+    void SetDocString(string doc);
+    void SetHelpFileName();
+    void SetHelpContext();
+    void SetLcid();
+    void SetLibFlags();
+    void SaveAllChanges();
+}
+
+
+namespace com.prologic.tools.tlbexpdoc
+{
+
+    // The callback object.
+    internal class ExporterNotiferSink : ITypeLibExporterNotifySink
+    {
+        public void ReportEvent(ExporterEventKind eventKind,
+        int eventCode, string eventMsg)
+        {
+            Console.WriteLine("Event reported: {0}", eventMsg);
+        }
+        public object ResolveRef(System.Reflection.Assembly assembly)
+        {
+            // If the assembly we are converting references another assembly,
+            // we need to generate a *tlb for it as well.
+            Console.WriteLine("Encountered an assembly which referenced another assembly...");
+            Console.WriteLine("Please enter the location to {0}", assembly.FullName);
+            string pathToAsm = Console.ReadLine();
+            return Program.GenerateTLBFromAsm(pathToAsm);
+        }
+    }
+    
+    
+    class Program
+    {
+        [DllImport("oleaut32.dll", CharSet = CharSet.Unicode, ExactSpelling = true)]
+        static extern int LoadTypeLib(string fileName, out ITypeLib typeLib);
+
+        static void Main(string[] args)
+        {
+            if (args.Length<1)
+            {
+                Console.WriteLine("Syntax: TlbExpDoc AssemblyName");
+                return;
+            }
+
+            string asmFile = args[0];
+            if (string.IsNullOrEmpty(asmFile))
+            {
+                Console.WriteLine("Syntax: TlbExpDoc AssemblyName");
+                return;
+            }
+
+            GenerateTLBFromAsm(asmFile);            
+        }
+
+        internal static ITypeLib GenerateTLBFromAsm(string pathToAssembly)
+        {
+            ITypeLib typeLib = null;
+            ExporterNotiferSink sink = new ExporterNotiferSink();
+
+            // Create filenames based on .NET assembly.
+            string tlbFile = Path.ChangeExtension(pathToAssembly, ".tlb");
+            string xmlFile = Path.ChangeExtension(pathToAssembly, ".xml");
+
+            // read XML comment file
+            XmlDocument xd = new XmlDocument();
+            xd.Load(xmlFile);
+
+            // Load the assembly to convert.
+            Assembly asm = Assembly.LoadFrom(pathToAssembly);
+            if (asm == null)
+            {
+                Console.WriteLine("Could not load assembly from:" + pathToAssembly);
+                return null;
+            }
+
+            try
+            {
+                // Convert the assembly.
+                ITypeLibConverter TLBConv = new TypeLibConverter();
+                typeLib = (ITypeLib) TLBConv.ConvertAssemblyToTypeLib(asm, tlbFile, 0, sink);
+                UCOMICreateTypeLib ctl = (UCOMICreateTypeLib) typeLib;
+
+                // insert documentation
+                addDoc(xd, ctl);
+
+                // Save the type library to file.
+                try
+                {
+                    ctl.SaveAllChanges();
+                }
+                catch (COMException e)
+                {
+                    throw new Exception("Error saving the type lib : "+ e.ErrorCode.ToString("x"));
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Error Converting assembly" + e);
+            }
+
+            return typeLib;
+        }
+
+        private static void addDoc(XmlDocument xd, UCOMICreateTypeLib ctl)
+        {
+            if (xd == null) throw new ArgumentNullException("xd");
+            if (ctl == null) throw new ArgumentNullException("ctl");
+
+            ITypeLib typeLib = (ITypeLib) ctl;
+
+            int nodeCount;
+            XmlNode node, summaryNode;
+            string nn, typeName, summary;
+            string[] parts;
+            char[] trim = { ' ', '\r', '\n' };
+            ITypeInfo[] tiList = new ITypeInfo[1];
+            int[] miList = new int[1];
+            string name, doc, hf;
+            int hc;
+            UCOMICreateTypeInfo cti;
+            ITypeLib tl2;
+
+
+            // --- document all types
+            XmlNodeList nodeList = xd.SelectNodes("//member[starts-with(@name,'T:')]");
+            if (nodeList != null)
+            {
+                nodeCount = nodeList.Count;
+                for (int n = 0; n < nodeCount; n++)
+                {
+                    Console.WriteLine("---Processing T: <member> (#"+n+") ---");
+                    // process node
+                    node = nodeList.Item(n);
+                    nn = node.Attributes["name"].Value;
+                    parts = nn.Split('.');
+                    typeName = parts[parts.Length - 1];
+                    summaryNode = node["summary"];
+                    if (summaryNode==null) continue;
+                    summary = summaryNode.InnerText.Trim(trim);
+                    summary = summary.Replace("\r\n", "");
+                    Console.WriteLine("Found xml comment: type="+typeName+", summary="+summary);
+
+                    // find type
+                    short found = 1;
+                    typeLib.FindName(typeName, 0, tiList, miList, ref found);
+                    if (found < 1) continue;
+                    ITypeInfo ti = tiList[0];
+                    Console.WriteLine("Found TypeInfo for type=" + typeName);
+
+                    // check existing doc
+                    int index = -1;
+                    ti.GetContainingTypeLib(out tl2, out index);
+                    typeLib.GetDocumentation(index, out name, out doc, out hc, out hf);
+                    Console.WriteLine("TypeInfo is at index=" + index + " with name=" + name);
+
+                    // insert doc
+                    cti = (UCOMICreateTypeInfo)ti;
+                    cti.SetDocString(summary);
+
+                    // confirm
+                    typeLib.GetDocumentation(index, out name, out doc, out hc, out hf);
+                    Console.WriteLine("Added doc string for type=" + typeName + ", docString=" + doc);
+
+                    Console.WriteLine("---Done processing T: <member> (#" + n + ") ---\r\n\r\n");
+                }
+            }
+
+            // --- document all methods
+            nodeList = xd.SelectNodes("//member[starts-with(@name,'M:')]");
+            if (nodeList != null)
+            {
+                nodeCount = nodeList.Count;
+                for (int n = 0; n < nodeCount; n++)
+                {
+                    Console.WriteLine("---Processing M: <member> (#" + n + ") ---");
+                    // process node
+                    node = nodeList.Item(n);
+                    nn = node.Attributes["name"].Value;
+                    int parenPos = nn.IndexOf('(');
+                    if (parenPos >= 0) nn = nn.Substring(0, parenPos);
+                    parts = nn.Split('.');
+                    typeName = parts[parts.Length - 2];
+                    string methName = parts[parts.Length - 1];
+                    summaryNode = node["summary"];
+                    if (summaryNode == null) continue;
+                    summary = summaryNode.InnerText.Trim(trim);
+                    summary = summary.Replace("\r\n", "");
+                    Console.WriteLine("Found xml comment: type=" + typeName + ", summary=" + summary);
+
+                    // find type
+                    short found = 1;
+                    typeLib.FindName(typeName, 0, tiList, miList, ref found);
+                    if (found < 1) continue;
+                    ITypeInfo ti = tiList[0];
+                    Console.WriteLine("Found TypeInfo for type=" + typeName);
+
+                    // check for methods in this type
+                    IntPtr attrPtr;
+                    ti.GetTypeAttr(out attrPtr);
+                    TYPEATTR attrStruct = (TYPEATTR) Marshal.PtrToStructure(attrPtr, typeof (TYPEATTR));
+                    ti.ReleaseTypeAttr(attrPtr);
+                    int fCount = attrStruct.cFuncs;
+                    if (fCount == 0)
+                    {
+                        Console.WriteLine("could not find method=" + methName + " for type=" + typeName);
+                        Console.WriteLine("---Done Processing M: <member> (#" + n + ") ---\r\n\r\n");
+                        continue;
+                    }
+
+                    // count inherited methods
+                    int impl = attrStruct.cImplTypes;
+                    int implMethCount = 3; // QI, AddRef, Release
+                    for (int i=0; i < impl; i++)
+                    {
+                        int href;
+                        ti.GetRefTypeOfImplType(i, out href);
+                        ITypeInfo implType;
+                        ti.GetRefTypeInfo(href, out implType);
+
+                        implType.GetTypeAttr(out attrPtr);
+                        attrStruct = (TYPEATTR)Marshal.PtrToStructure(attrPtr, typeof(TYPEATTR));
+                        implType.ReleaseTypeAttr(attrPtr);
+                        implMethCount += attrStruct.cFuncs;
+                    }
+
+                    // find target method
+                    string[] fnameList = new string[20];
+                    int methIndex = -1;
+                    int methID = 0;
+                    IntPtr fdPtr;
+                    FUNCDESC fdStruct;
+                    for (int f=0; f<fCount; f++)
+                    {
+                        ti.GetFuncDesc(f,out fdPtr);
+                        fdStruct = (FUNCDESC) Marshal.PtrToStructure(fdPtr, typeof (FUNCDESC));
+                        ti.ReleaseFuncDesc(fdPtr);
+                        int nameCount=0;
+                        ti.GetNames(fdStruct.memid,fnameList,20,out nameCount);
+                        if (nameCount < 1) continue;
+                        string fname = fnameList[0];
+                        if (fname.Equals(methName))
+                        {
+                            methIndex = f - implMethCount;
+                            methID = fdStruct.memid;
+                            break;
+                        }
+                    }
+                    if (methIndex < 0 )
+                    {
+                        Console.WriteLine("could not find method=" + methName + " for type=" + typeName);
+                        Console.WriteLine("---Done Processing M: <member> (#" + n + ") ---\r\n\r\n");
+                        continue;
+                    }
+
+                    // check existing doc
+                    int index = -1;
+                    ti.GetContainingTypeLib(out tl2, out index);
+                    typeLib.GetDocumentation(index, out name, out doc, out hc, out hf);
+                    Console.WriteLine("TypeInfo is at index=" + index + " with name=" + name);
+                    ti.GetDocumentation(methID, out name, out doc, out hc, out hf);
+
+                    // insert doc
+                    cti = (UCOMICreateTypeInfo)ti;
+                    try
+                    {
+                        cti.SetFuncDocString(methIndex, summary);                        
+                    }
+                    catch (COMException)
+                    {
+                        Console.WriteLine("ERROR: Unable to insert doc");
+                        Console.WriteLine("---Done Processing M: <member> (#" + n + ") ---\r\n\r\n");
+                        continue;
+                    }
+ 
+                    // confirm
+                    ti.GetDocumentation(methID, out name, out doc, out hc, out hf);
+                    Console.WriteLine("Added doc string for type=" + typeName + ", docString=" + doc);
+
+                    Console.WriteLine("---Done Processing M: <member> (#" + n + ") ---\r\n\r\n");
+                }
+            }
+        }
+    }
+}
+]]></script>
+</body>
+</html>
