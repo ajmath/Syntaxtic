@@ -1,26 +1,137 @@
 {
   "name": "Syntaxical!",
   "description": "Highlight dem codes",
-  "version": "1.0",
-  "background_page": "background.html",
-  "options_page": "options.html",
-  "permissions": [
-    "tabs", "https://*/*", "http://*/*"
-  ],  
+  "version": "0.1",
   "content_scripts": [
-	{ 
-		"matches": ["http://*/*.cs", "https://*/*.cs", "file:///*/*.cs"], 
-		"js": ["scripts/shCore.js", "scripts/shBrushCSharp.js"],
+     {
+		"matches": ["http://*/*.config", "https://*/*.config", "file:///*/*.config",
+                    "http://*/*.xml", "https://*/*.xml", "file:///*/*.xml",
+                    "http://*/*.wsdl", "https://*/*.wsdl", "file:///*/*.wsdl",
+                    "http://*/*.vbproj", "https://*/*.vbproj", "file:///*/*.vbproj",
+                    "http://*/*.csproj", "https://*/*.csproj", "file:///*/*.csproj"],
+		"js": ["scripts/shCore.js", "scripts/shBrushXml.js", "langs/xml.js", "content_script.js"],
+		"run_at": "document_end"
+	 },
+     {
+		"matches": ["http://*/*.vb", "https://*/*.vb", "file:///*/*.vb",
+                    "http://*/*.VB", "https://*/*.VB", "file:///*/*.VB"],
+		"js": ["scripts/shCore.js", "scripts/shBrushVb.js", "langs/vb.js", "content_script.js"],
+		"run_at": "document_end"
+	 },
+     {
+		"matches": ["http://*/*.sql", "https://*/*.sql", "file:///*/*.sql",
+                    "http://*/*.SQL", "https://*/*.SQL", "file:///*/*.SQL"],
+		"js": ["scripts/shCore.js", "scripts/shBrushSql.js", "langs/sql.js", "content_script.js"],
+		"run_at": "document_end"
+	 },
+     {
+		"matches": ["http://*/*.scala", "https://*/*.scala", "file:///*/*.scala",
+                    "http://*/*.SCALA", "https://*/*.SCALA", "file:///*/*.SCALA"],
+		"js": ["scripts/shCore.js", "scripts/shBrushScala.js", "langs/scala.js", "content_script.js"],
+		"run_at": "document_end"
+	 },
+     {
+		"matches": ["http://*/*.rb", "https://*/*.rb", "file:///*/*.rb",
+                    "http://*/*.RB", "https://*/*.RB", "file:///*/*.RB"],
+		"js": ["scripts/shCore.js", "scripts/shBrushRuby.js", "langs/rb.js", "content_script.js"],
+		"run_at": "document_end"
+	 },
+     {
+		"matches": ["http://*/*.ps1", "https://*/*.ps1", "file:///*/*.ps1",
+                    "http://*/*.PS1", "https://*/*.PS1", "file:///*/*.PS1"],
+		"js": ["scripts/shCore.js", "scripts/shBrushPowerShell.js", "langs/ps.js", "content_script.js"],
+		"run_at": "document_end"
+	 },
+     {
+		"matches": ["http://*/*.txt", "https://*/*.txt", "file:///*/*.txt",
+                    "http://*/*.TXT", "https://*/*.TXT", "file:///*/*.TXT"],
+		"js": ["scripts/shCore.js", "scripts/shBrushPlain.js", "langs/plain.js", "content_script.js"],
 		"run_at": "document_end"
 	},
-    { 
-		"matches": ["http://*/*", "https://*/*", "file:///*/*"], 
-		"js": ["content_script.js"],
+    {
+		"matches": ["http://*/*.pl", "https://*/*.pl", "file:///*/*.pl",
+                    "http://*/*.PL", "https://*/*.PL", "file:///*/*.PL",
+                    "http://*/*.perl", "https://*/*.perl", "file:///*/*.perl"],
+		"js": ["scripts/shCore.js", "scripts/shBrushPerl.js", "langs/perl.js", "content_script.js"],
+		"run_at": "document_end"
+	},
+    {
+		"matches": ["http://*/*.fx", "https://*/*.fx", "file:///*/*.fx",
+                    "http://*/*.FX", "https://*/*.FX", "file:///*/*.FX"],
+		"js": ["scripts/shCore.js", "scripts/shBrushJavaFX.js", "langs/javafx.js", "content_script.js"],
+		"run_at": "document_end"
+	},
+    {
+		"matches": ["http://*/*.java", "https://*/*.java", "file:///*/*.java",
+                    "http://*/*.JAVA", "https://*/*.JAVA", "file:///*/*.JAVA"],
+		"js": ["scripts/shCore.js", "scripts/shBrushJava.js", "langs/java.js", "content_script.js"],
+		"run_at": "document_end"
+	},
+    {
+		"matches": ["http://*/*.js", "https://*/*.js", "file:///*/*.js",
+                    "http://*/*.JS", "https://*/*.JS", "file:///*/*.JS"],
+		"js": ["scripts/shCore.js", "scripts/shBrushJScript.js", "langs/js.js", "content_script.js"],
+		"run_at": "document_end"
+	},
+    {
+		"matches": ["http://*/*.groovy", "https://*/*.groovy", "file:///*/*.groovy",
+                    "http://*/*.GROOVY", "https://*/*.GROOVY", "file:///*/*.GROOVY"],
+		"js": ["scripts/shCore.js", "scripts/shBrushGroovy.js", "langs/groovy.js", "content_script.js"],
+		"run_at": "document_end"
+	},
+    {
+		"matches": ["http://*/*.erl", "https://*/*.erl", "file:///*/*.erl",
+                    "http://*/*.ERL", "https://*/*.ERL", "file:///*/*.ERL"],
+		"js": ["scripts/shCore.js", "scripts/shBrushErlang.js", "langs/erl.js", "content_script.js"],
+		"run_at": "document_end"
+	},
+    {
+		"matches": ["http://*/*.diff", "https://*/*.diff", "file:///*/*.diff",
+                    "http://*/*.DIFF", "https://*/*.DIFF", "file:///*/*.DIFF"],
+		"js": ["scripts/shCore.js", "scripts/shBrushDiff.js", "langs/diff.js", "content_script.js"],
+		"run_at": "document_end"
+	},
+    {
+		"matches": ["http://*/*.css", "https://*/*.css", "file:///*/*.css",
+                    "http://*/*.CSS", "https://*/*.CSS", "file:///*/*.CSS"],
+		"js": ["scripts/shCore.js", "scripts/shBrushCss.js", "langs/css.js", "content_script.js"],
+		"run_at": "document_end"
+	},
+    {
+		"matches": ["http://*/*.cpp", "https://*/*.cpp", "file:///*/*.cpp",
+                    "http://*/*.CPP", "https://*/*.CPP", "file:///*/*.CPP",
+                    "http://*/*.c", "https://*/*.c", "file:///*/*.c",
+                    "http://*/*.C", "https://*/*.C", "file:///*/*.C",
+                    "http://*/*.h", "https://*/*.h", "file:///*/*.h",
+                    "http://*/*.H", "https://*/*.H", "file:///*/*.H"],
+		"js": ["scripts/shCore.js", "scripts/shBrushCpp.js", "langs/cpp.js", "content_script.js"],
+		"run_at": "document_end"
+	},
+    {
+		"matches": ["http://*/*.sh", "https://*/*.sh", "file:///*/*.sh",
+                    "http://*/*.SH", "https://*/*.SH", "file:///*/*.SH"],
+		"js": ["scripts/shCore.js", "scripts/shBrushBash.js", "langs/sh.js", "content_script.js"],
+		"run_at": "document_end"
+	},
+    {
+		"matches": ["http://*/*.as", "https://*/*.as", "file:///*/*.as",
+                    "http://*/*.AS", "https://*/*.AS", "file:///*/*.AS",
+                    "http://*/*.actionscript", "https://*/*.actionscript", "file:///*/*.actionscript",
+                    "http://*/*.ACTIONSCRIPT", "https://*/*.ACTIONSCRIPT", "file:///*/*.ACTIONSCRIPT"],
+		"js": ["scripts/shCore.js", "scripts/shBrushCSharp.js", "langs/as3.js", "content_script.js"],
+		"run_at": "document_end"
+	},
+	{ 
+		"matches": ["http://*/*.cs", "https://*/*.cs", "file:///*/*.cs",
+                    "http://*/*.CS", "https://*/*.CS", "file:///*/*.CS"],
+		"js": ["scripts/shCore.js", "scripts/shBrushCSharp.js", "langs/cs.js", "content_script.js"],
+		"run_at": "document_end"
+	},
+	{ 
+		"matches": ["http://*/*.py", "https://*/*.py", "file:///*/*.py",
+                    "http://*/*.PY", "https://*/*.PY", "file:///*/*.PY"],
+		"js": ["scripts/shCore.js", "scripts/shBrushPython.js", "langs/py.js", "content_script.js"],
 		"run_at": "document_end"
 	}
-  ],
-  "browser_action": {
-      "default_title": "Thats Syntaxical!",
-      "default_icon": "icon.png"
-  }
+  ]
 }
