@@ -8,6 +8,8 @@ function save_options() {
   var theme = select.children[select.selectedIndex].value;
   window.localStorage["current_theme"] = theme;
 
+    chrome.extension.sendRequest({theme: localStore.current_theme});
+
   // Update status to let user know options were saved.
   var status = document.getElementById("status");
   status.innerHTML = "Theme set to " + window.localStorage["current_theme"] + ".";
@@ -31,6 +33,7 @@ function restore_options() {
     }
   }
 }
+
 
 </script>
 

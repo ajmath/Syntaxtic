@@ -1,4 +1,10 @@
-var theme = "Default";
+var theme = "Midnight";
+
+chrome.extension.onRequest.addListener(
+  function(request, sender, sendResponse) {
+    theme = request.theme;
+      console.log(theme);
+  });
 
 var highlight = function() {
 	if(!document.body.innerHTML.match("003ew0hdafa1119dadfa39aje"))
@@ -26,13 +32,7 @@ var highlight = function() {
 }
 	
 var main = function() {
-
-
-    chrome.extension.sendRequest({}, function(response) {
-        theme = response.theme;
-    });
-
-
+    
     if(brushAlias != null && brushAlias != 'undefined' && brushAlias != "")
         highlight();
 

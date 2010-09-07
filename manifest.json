@@ -1,11 +1,14 @@
 {
-  "name": "Syntaxical!",
-  "description": "Highlight dem codes",
+  "name": "Syntaxtic!",
+  "description": "Preforms syntax highlighting on files visited in the browser based on the files extension",
   "version": "0.1",
+  "icons": { "48": "syntaxtic_48x48.png", "128": "syntaxtic_128x128.png"},
+  "options_page": "options.html",
   "content_scripts": [
      {
 		"matches": ["http://*/*.config", "https://*/*.config", "file:///*/*.config",
                     "http://*/*.xml", "https://*/*.xml", "file:///*/*.xml",
+                    "http://*/*.build", "https://*/*.build", "file:///*/*.build",
                     "http://*/*.wsdl", "https://*/*.wsdl", "file:///*/*.wsdl",
                     "http://*/*.vbproj", "https://*/*.vbproj", "file:///*/*.vbproj",
                     "http://*/*.csproj", "https://*/*.csproj", "file:///*/*.csproj"],
