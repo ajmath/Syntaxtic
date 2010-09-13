@@ -11,11 +11,17 @@
       "run_at": "document_end"
    },
    {
+      "js": [ "scripts/shCore.js", "scripts/shBrushCommonLisp.js", "langs/clisp.js", "content_script.js" ],
+      "matches": [ "http://*/*.lisp", "https://*/*.lisp", "file:///*/*.lisp", 
+				   "http://*/*.LISP", "https://*/*.LISP", "file:///*/*.LISP",
+				   "http://*/*.emacs", "https://*/*.emacs", "file:///*/*.emacs",
+				   "http://*/*.EMACS", "https://*/*.EMACS", "file:///*/*.EMACS"],
+      "run_at": "document_end"
+   },
+   {
       "js": [ "scripts/shCore.js", "scripts/shBrushClojure.js", "langs/clojure.js", "content_script.js" ],
       "matches": [ "http://*/*.clj", "https://*/*.clj", "file:///*/*.clj", 
-				   "http://*/*.CLJ", "https://*/*.CLJ", "file:///*/*.CLJ",
-				   "http://*/*.lisp", "https://*/*.lisp", "file:///*/*.lisp", 
-				   "http://*/*.LISP", "https://*/*.LISP", "file:///*/*.LISP"],
+				   "http://*/*.CLJ", "https://*/*.CLJ", "file:///*/*.CLJ"],
       "run_at": "document_end"
    },
    {
