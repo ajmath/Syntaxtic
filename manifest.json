@@ -10,6 +10,13 @@
 				   "http://*/*.TEX", "https://*/*.TEX", "file:///*/*.TEX"],
       "run_at": "document_end"
    },
+      {
+      "js": [ "scripts/shCore.js", "scripts/shBrushPlain.js", "langs/csv.js", "scripts/CsvToArray.js", "scripts/sprintf-0.7-beta1.js", "content_script.js" ],
+      "matches": [ "http://*/*.csv", "https://*/*.csv", "file:///*/*.csv", 
+				   "http://*/*.CSV", "https://*/*.CSV", "file:///*/*.CSV"],
+      "run_at": "document_end"
+   },
+      
    {
       "js": [ "scripts/shCore.js", "scripts/shBrushBibTex.js", "langs/bibtex.js", "content_script.js" ],
       "matches": [ "http://*/*.bibtex", "https://*/*.bibtex", "file:///*/*.bibtex", 
@@ -116,5 +123,5 @@
       "48": "syntaxtic_48x48.png"
    },
    "name": "Syntaxtic!",
-   "version": "0.2"
+   "version": "0.3"
 }

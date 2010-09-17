@@ -30,12 +30,58 @@ var highlight = function() {
         SyntaxHighlighter.all();
 	}
 }
+
+var beautifyCsv = function()
+{
+	var strData = document.body.firstChild.innerHTML;
+	var csvArray = CsvToArray(strData, ",");
+	var maxColLengthsHash = new Array();
+	for(var i = 0; i< csvArray[0].length; i++)
+		maxColLengthsHash[i] = -1;
+		
+	var csvArrayDecoded = new Array();
+	for(var i =0; i < csvArray.length; i++)
+	{
+		csvArrayDecoded[i] = new Array();
+		for(var j =0; j < csvArray[i].length; j++)
+		{
+			var orig = csvArray[i][j];
+			var strDecode = html_entity_decode(csvArray[i][j]);
+			csvArrayDecoded[i][j] = strDecode;
+			if(strDecode.length > maxColLengthsHash[j])
+				maxColLengthsHash[j] = strDecode.length;
+		}
+	}
+	
+	var newCsvData = "";
+	for(var i = 0; i < csvArray.length; i++)
+	for(var j =0; j < csvArray[i].length; j++)
+	{
+		for(var k = 0; k <= maxColLengthsHash[j] - csvArrayDecoded[i][j].length; k++)
+		{
+			newCsvData += " ";
+		}
+		newCsvData += csvArray[i][j];
+		if(j + 1 == csvArray[i].length)
+			newCsvData += '\n';
+		else
+			newCsvData += ", ";
+	}
+	
+	document.body.firstChild.innerHTML = newCsvData;
+	brushAlias = "plain";
+}
 	
 var main = function() {
     
     if(brushAlias != null && brushAlias != 'undefined' && brushAlias != "")
-        highlight();
-
+	{   
+		if(brushAlias == 'csv')
+			beautifyCsv();
+			
+		highlight();
+	}
+     
 
 
     //WORKS!
