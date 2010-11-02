@@ -71,6 +71,15 @@ var beautifyCsv = function()
 	document.body.firstChild.innerHTML = newCsvData;
 	brushAlias = "plain";
 }
+
+var checkForObjectiveC = function()
+{
+	var strData = document.body.innerHTML;
+	if(strData.match(/(@interface|@protocol|@INTERFACE|@PROTOCOL)/) != null)
+		return "objc";
+	else
+		return "cpp";
+}
 	
 var main = function() {
     
@@ -79,24 +88,10 @@ var main = function() {
 		if(brushAlias == 'csv')
 			beautifyCsv();
 			
+		if(brushAlias == 'cHeader')
+			brushAlias = checkForObjectiveC();
+		
 		highlight();
 	}
-     
-
-
-    //WORKS!
-	//ext = "py";
-	//highlight();
-	
-
-	
-	//Does not work
-	//getExtension();
-	
-	
-	
-	//Does not work
-	//ext = "cs"
-	//setTimeout("highlight();", 500);
 }	
 main();

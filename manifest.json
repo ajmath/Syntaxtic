@@ -10,6 +10,12 @@
 				   "http://*/*.TEX", "https://*/*.TEX", "file:///*/*.TEX"],
       "run_at": "document_end"
    },
+         {
+      "js": [ "scripts/shCore.js", "scripts/shBrushObjectiveC.js", "langs/objc.js", "content_script.js" ],
+      "matches": [ "http://*/*.m", "https://*/*.m", "file:///*/*.m", 
+				   "http://*/*.M", "https://*/*.M", "file:///*/*.M"],
+      "run_at": "document_end"
+   },
       {
       "js": [ "scripts/shCore.js", "scripts/shBrushPlain.js", "langs/csv.js", "scripts/CsvToArray.js", "scripts/sprintf-0.7-beta1.js", "content_script.js" ],
       "matches": [ "http://*/*.csv", "https://*/*.csv", "file:///*/*.csv", 
@@ -98,9 +104,14 @@
       "run_at": "document_end"
    }, {
       "js": [ "scripts/shCore.js", "scripts/shBrushCpp.js", "langs/cpp.js", "content_script.js" ],
-      "matches": [ "http://*/*.cpp", "https://*/*.cpp", "file:///*/*.cpp", "http://*/*.CPP", "https://*/*.CPP", "file:///*/*.CPP", "http://*/*.c", "https://*/*.c", "file:///*/*.c", "http://*/*.C", "https://*/*.C", "file:///*/*.C", "http://*/*.h", "https://*/*.h", "file:///*/*.h", "http://*/*.H", "https://*/*.H", "file:///*/*.H" ],
+      "matches": [ "http://*/*.cpp", "https://*/*.cpp", "file:///*/*.cpp", "http://*/*.CPP", "https://*/*.CPP", "file:///*/*.CPP", "http://*/*.c", "https://*/*.c", "file:///*/*.c", "http://*/*.C", "https://*/*.C", "file:///*/*.C" ],
       "run_at": "document_end"
-   }, {
+   }, 
+   {
+      "js": [ "scripts/shCore.js", "scripts/shBrushCpp.js", "scripts/shBrushObjectiveC.js", "langs/cHeader.js", "content_script.js" ],
+      "matches": [ "http://*/*.h", "https://*/*.h", "file:///*/*.h", "http://*/*.H", "https://*/*.H", "file:///*/*.H" ],
+      "run_at": "document_end"
+   },{
       "js": [ "scripts/shCore.js", "scripts/shBrushBash.js", "langs/sh.js", "content_script.js" ],
       "matches": [ "http://*/*.sh", "https://*/*.sh", "file:///*/*.sh", "http://*/*.SH", "https://*/*.SH", "file:///*/*.SH" ],
       "run_at": "document_end"
