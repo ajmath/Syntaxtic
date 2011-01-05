@@ -104,7 +104,8 @@
       "run_at": "document_end"
    }, {
       "js": [ "scripts/shCore.js", "scripts/shBrushDiff.js", "langs/diff.js", "content_script.js" ],
-      "matches": [ "http://*/*.diff", "https://*/*.diff", "file:///*/*.diff", "http://*/*.DIFF", "https://*/*.DIFF", "file:///*/*.DIFF" ],
+      "matches": [ "http://*/*.diff", "https://*/*.diff", "file:///*/*.diff", "http://*/*.DIFF", "https://*/*.DIFF", "file:///*/*.DIFF",
+			       "http://*/*.patch", "https://*/*.patch", "file:///*/*.patch"],
       "run_at": "document_end"
    }, {
       "js": [ "scripts/shCore.js", "scripts/shBrushCss.js", "langs/css.js", "content_script.js" ],
