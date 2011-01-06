@@ -9,7 +9,7 @@ chrome.extension.onRequest.addListener(
 var highlight = function() {
 	if(!document.body.innerHTML.match("003ew0hdafa1119dadfa39aje"))
 	{
-		if(document.body.firstChild != null && document.body.firstChild == document.body.lastChild)
+		if(document.body.firstChild != null)
 		{
 			document.body.innerHTML = '<!-- 003ew0hdafa1119dadfa39aje --> ' + '<script type="syntaxhighlighter"' +
 			' class="brush: ' + brushAlias + '"><![CDATA[' + document.body.firstChild.innerHTML + ']]></script>';
