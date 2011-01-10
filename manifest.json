@@ -2,23 +2,23 @@
    "content_scripts": [ {
       "js": [ "scripts/shCore.js", "scripts/shBrushXml.js", "langs/xml.js", "content_script.js" ],
       "matches": [ "http://*/*.config", "https://*/*.config", "file:///*/*.config", 
+				   "http://*/*.config?*", "https://*/*.config?*", "file:///*/*.config?*",
 				   "http://*/*.xml", "https://*/*.xml", "file:///*/*.xml", 
-				   "http://*/*.build", "https://*/*.build", "file:///*/*.build", 
-				   "http://*/*.wsdl", "https://*/*.wsdl", "file:///*/*.wsdl", 
-				   "http://*/*.vbproj", "https://*/*.vbproj", "file:///*/*.vbproj", 
-				   "http://*/*.csproj", "https://*/*.csproj", "file:///*/*.csproj", 
-				   "http://*/*.xsd", "https://*/*.xsd", "file:///*/*.xsd",  
-				   "http://*/*.plist", "https://*/*.plist", "file:///*/*.plist",
-				   "http://*/*.xib", "https://*/*.xib", "file:///*/*.xib", 
-				   "http://*/*.config?*", "https://*/*.config?*", "file:///*/*.config?*", 
 				   "http://*/*.xml?*", "https://*/*.xml?*", "file:///*/*.xml?*", 
-				   "http://*/*.build?*", "https://*/*.build?*", "file:///*/*.build?*", 
-				   "http://*/*.wsdl?*", "https://*/*.wsdl?*", "file:///*/*.wsdl?*", 
-				   "http://*/*.vbproj?*", "https://*/*.vbproj?*", "file:///*/*.vbproj?*", 
-				   "http://*/*.csproj?*", "https://*/*.csproj?*", "file:///*/*.csproj?*", 
-				   "http://*/*.xsd?*", "https://*/*.xsd?*", "file:///*/*.xsd?*",  
-				   "http://*/*.plist?*", "https://*/*.plist?*", "file:///*/*.plist?*",
-				   "http://*/*.xib?*", "https://*/*.xib?*", "file:///*/*.xib?*" 
+				   "http://*/*.build", "https://*/*.build", "file:///*/*.build", 
+				   "http://*/*.build?*", "https://*/*.build?*", "file:///*/*.build?*",
+				   "http://*/*.wsdl", "https://*/*.wsdl", "file:///*/*.wsdl",
+				   "http://*/*.wsdl?*", "https://*/*.wsdl?*", "file:///*/*.wsdl?*",  
+				   "http://*/*.xib", "https://*/*.xib", "file:///*/*.xib",
+				   "http://*/*.xib?*", "https://*/*.xib?*", "file:///*/*.xib?*",
+				   "http://*/*.vbproj", "https://*/*.vbproj", "file:///*/*.vbproj", 
+				   "http://*/*.vbproj?*", "https://*/*.vbproj?*", "file:///*/*.vbproj?*",
+				   "http://*/*.csproj", "https://*/*.csproj", "file:///*/*.csproj", 
+				   "http://*/*.csproj?*", "https://*/*.csproj?*", "file:///*/*.csproj?*",
+				   "http://*/*.xsd", "https://*/*.xsd", "file:///*/*.xsd",  
+				   "http://*/*.xsd?*", "https://*/*.xsd?*", "file:///*/*.xsd?*",
+				   "http://*/*.plist", "https://*/*.plist", "file:///*/*.plist",
+				   "http://*/*.plist?*", "https://*/*.plist?*", "file:///*/*.plist?*"
 				],
       "run_at": "document_end"
    },
@@ -43,17 +43,17 @@
       
    {
       "js": [ "scripts/shCore.js", "scripts/shBrushBibTex.js", "langs/bibtex.js", "content_script.js" ],
-      "matches": [ "http://*/*.bibtex", "https://*/*.bibtex", "file:///*/*.bibtex",
-				   "http://*/*.bib", "https://*/*.bib", "file:///*/*.bib",
+      "matches": [ "http://*/*.bibtex", "https://*/*.bibtex", "file:///*/*.bibtex",	
 				   "http://*/*.bibtex?*", "https://*/*.bibtex?*", "file:///*/*.bibtex?*",
+				   "http://*/*.bib", "https://*/*.bib", "file:///*/*.bib",
 				   "http://*/*.bib?*", "https://*/*.bib?*", "file:///*/*.bib?*"],
       "run_at": "document_end"
    },
    {
       "js": [ "scripts/shCore.js", "scripts/shBrushCommonLisp.js", "langs/clisp.js", "content_script.js" ],
-      "matches": [ "http://*/*.lisp", "https://*/*.lisp", "file:///*/*.lisp", 
+      "matches": [ "http://*/*.lisp", "https://*/*.lisp", "file:///*/*.lisp", 	
+				   "http://*/*.lisp?*", "https://*/*.lisp?*", "file:///*/*.lisp?*",
 				   "http://*/*.emacs", "https://*/*.emacs", "file:///*/*.emacs",
-				   "http://*/*.lisp?*", "https://*/*.lisp?*", "file:///*/*.lisp?*", 
 				   "http://*/*.emacs?*", "https://*/*.emacs?*", "file:///*/*.emacs?*"],
       "run_at": "document_end"
    },
@@ -64,7 +64,8 @@
    },
    {
       "js": [ "scripts/shCore.js", "scripts/shBrushVb.js", "langs/vb.js", "content_script.js" ],
-      "matches": [ "http://*/*.vb", "https://*/*.vb", "file:///*/*.vb"],
+      "matches": [ "http://*/*.vb", "https://*/*.vb", "file:///*/*.vb",
+					"http://*/*.vb?*", "https://*/*.vb?*", "file:///*/*.vb?*"],
       "run_at": "document_end"
    }, {
       "js": [ "scripts/shCore.js", "scripts/shBrushSql.js", "langs/sql.js", "content_script.js" ],
@@ -83,9 +84,9 @@
       "run_at": "document_end"
    }, {
       "js": [ "scripts/shCore.js", "scripts/shBrushPowerShell.js", "langs/ps.js", "content_script.js" ],
-      "matches": [ "http://*/*.ps1", "https://*/*.ps1", "file:///*/*.ps1",
-				   "http://*/*.ps2", "https://*/*.ps2", "file:///*/*.ps2",
+      "matches": [ "http://*/*.ps1", "https://*/*.ps1", "file:///*/*.ps1",	
 					"http://*/*.ps1?*", "https://*/*.ps1?*", "file:///*/*.ps1?*",
+				   "http://*/*.ps2", "https://*/*.ps2", "file:///*/*.ps2",
 				   "http://*/*.ps2?*", "https://*/*.ps2?*", "file:///*/*.ps2?*"],
       "run_at": "document_end"
    }, {
@@ -110,11 +111,11 @@
       "run_at": "document_end"
    }, {
       "js": [ "scripts/shCore.js", "scripts/shBrushJScript.js", "langs/js.js", "content_script.js" ],
-      "matches": [ "http://*/*.js", "https://*/*.js", "file:///*/*.js",
-					"http://*/*.json", "https://*/*.json", "file:///*/*.json",
-					"http://*/*.pbxproj", "https://*/*.pbxproj", "file:///*/*.pbxproj",
+      "matches": [ "http://*/*.js", "https://*/*.js", "file:///*/*.js",	
 					"http://*/*.js?*", "https://*/*.js?*", "file:///*/*.js?*",
+					"http://*/*.json", "https://*/*.json", "file:///*/*.json",
 					"http://*/*.json?*", "https://*/*.json?*", "file:///*/*.json?*",
+					"http://*/*.pbxproj", "https://*/*.pbxproj", "file:///*/*.pbxproj",
 					"http://*/*.pbxproj?*", "https://*/*.pbxproj?*", "file:///*/*.pbxproj?*"],
       "run_at": "document_end"
    }, {
@@ -129,9 +130,9 @@
       "run_at": "document_end"
    }, {
       "js": [ "scripts/shCore.js", "scripts/shBrushDiff.js", "langs/diff.js", "content_script.js" ],
-      "matches": [ "http://*/*.diff", "https://*/*.diff", "file:///*/*.diff",
-					"http://*/*.patch", "https://*/*.patch", "file:///*/*.patch",
+      "matches": [ "http://*/*.diff", "https://*/*.diff", "file:///*/*.diff",	
 					"http://*/*.diff?*", "https://*/*.diff?*", "file:///*/*.diff?*",
+					"http://*/*.patch", "https://*/*.patch", "file:///*/*.patch",
 					"http://*/*.patch?*", "https://*/*.patch?*", "file:///*/*.patch?*"],
       "run_at": "document_end"
    }, {
@@ -141,9 +142,9 @@
       "run_at": "document_end"
    }, {
       "js": [ "scripts/shCore.js", "scripts/shBrushCpp.js", "langs/cpp.js", "content_script.js" ],
-      "matches": [ "http://*/*.cpp", "https://*/*.cpp", "file:///*/*.cpp",  
-					"http://*/*.c", "https://*/*.c", "file:///*/*.c",
-					"http://*/*.cpp?*", "https://*/*.cpp?*", "file:///*/*.cpp?*",  
+      "matches": [ "http://*/*.cpp", "https://*/*.cpp", "file:///*/*.cpp",  	
+					"http://*/*.cpp?*", "https://*/*.cpp?*", "file:///*/*.cpp?*",
+					"http://*/*.c", "https://*/*.c", "file:///*/*.c",  
 					"http://*/*.c?*", "https://*/*.c?*", "file:///*/*.c?*" ],
       "run_at": "document_end"
    }, 
@@ -159,9 +160,9 @@
       "run_at": "document_end"
    }, {
       "js": [ "scripts/shCore.js", "scripts/shBrushCSharp.js", "langs/as3.js", "content_script.js" ],
-      "matches": [ "http://*/*.as", "https://*/*.as", "file:///*/*.as", 
-					"http://*/*.actionscript", "https://*/*.actionscript", "file:///*/*.actionscript",
-					"http://*/*.as?*", "https://*/*.as?*", "file:///*/*.as?*", 
+      "matches": [ "http://*/*.as", "https://*/*.as", "file:///*/*.as", 	
+					"http://*/*.as?*", "https://*/*.as?*", "file:///*/*.as?*",
+					"http://*/*.actionscript", "https://*/*.actionscript", "file:///*/*.actionscript", 
 					"http://*/*.actionscript?*", "https://*/*.actionscript?*", "file:///*/*.actionscript?*" ],
       "run_at": "document_end"
    }, {
@@ -171,7 +172,8 @@
       "run_at": "document_end"
    }, {
       "js": [ "scripts/shCore.js", "scripts/shBrushPython.js", "langs/py.js", "content_script.js" ],
-      "matches": [ "http://*/*.py", "https://*/*.py", "file:///*/*.py" ],
+      "matches": [ "http://*/*.py", "https://*/*.py", "file:///*/*.py",
+					"http://*/*.py?*", "https://*/*.py?*", "file:///*/*.py?*" ],
       "run_at": "document_end"
    } ],
    "description": "Preforms syntax highlighting on files visited in the browser based on thier extension",

@@ -6,6 +6,27 @@ chrome.extension.onRequest.addListener(
       console.log(theme);
   });
 
+var hasHtmlContentType = function() {
+	var result = false;
+	var metaTags = document.getElementsByTagName('meta');
+	for(var i in metaTags)
+	{
+		var httpEquiv = metaTags[i].httpEquiv;
+		var content = metaTags[i].content;
+		
+		if (typeof(httpEquiv) == 'undefined' || (typeof(httpEquiv) == 'undefined' && typeof(content) == 'undefined'))
+			continue;
+ 
+		if (httpEquiv.toLowerCase() == "content-type" && content.toLowerCase().match("html")) 
+		{
+			result = true;
+			break;
+		}
+	}
+	
+	return result;
+}
+
 var highlight = function() {
 	if(!document.body.innerHTML.match("003ew0hdafa1119dadfa39aje"))
 	{
@@ -80,10 +101,14 @@ var checkForObjectiveC = function()
 	else
 		return "cpp";
 }
-	
+
+/////////////////////////
+// MAIN
+/////////////////////////
+
 var main = function() {
     
-    if(brushAlias != null && brushAlias != 'undefined' && brushAlias != "")
+    if(brushAlias != null && brushAlias != 'undefined' && brushAlias != "" && !hasHtmlContentType())
 	{   
 		if(brushAlias == 'csv')
 			beautifyCsv();
@@ -93,5 +118,6 @@ var main = function() {
 		
 		highlight();
 	}
-}	
+}
+
 main();
