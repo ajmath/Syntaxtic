@@ -1,0 +1,44 @@
+<html>
+<head>
+
+
+<script>
+function include(file) {
+	script = document.createElement('script');
+	script.src = file;
+	script.type = 'text/javascript';
+	
+	var head = document.getElementsByTagName('head')[0];
+	head.appendChild(script);
+}
+	
+function comboBoxChanged() {
+	console.log("combobox changed!");
+	var box = document.themeSelector.themeComboBox;
+	var val = box.options[box.selectedIndex].value;
+	syntaxticBackground['setTheme'](val);
+	
+	
+}
+
+</script>
+</head>
+
+<body onLoad="include('background.js');">
+	<form name=themeSelector>
+		<p>
+			<select name=themeComboBox size=1 onChange="comboBoxChanged()">
+				<option value="" SELECTED>Theme selection</option>
+				<option value="shThemeDefault.css">Default</option>
+				<option value="shThemeDjango.css">Django</option>
+				<option value="shThemeEclipse.css">Eclipse</option>
+				<option value="shThemeEmacs.css">Emacs</option>
+				<option value="shThemeFadeToGrey.css">FadeToGrey</option>
+				<option value="shThemeMDUltra.css">MDUltra</option>
+				<option value="shThemeMidnight.css">Midnight</option>
+				<option value="shThemeRDark.css">RDark</option>
+			</select>
+		</p>
+	</form>
+</body>
+</html>
