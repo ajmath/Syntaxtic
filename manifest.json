@@ -97,6 +97,7 @@
    }, {
       "js": [ "scripts/shCore.js", "scripts/shBrushPerl.js", "langs/perl.js", "content_script.js" ],
       "matches": [ "http://*/*.pl", "https://*/*.pl", "file:///*/*.pl", 
+					"http://*/*.pm", "https://*/*.pm", "file:///*/*.pm", 
 					"http://*/*.perl", "https://*/*.perl", "file:///*/*.perl"],
       "run_at": "document_end"
    }, {
@@ -144,6 +145,7 @@
       "js": [ "scripts/shCore.js", "scripts/shBrushCpp.js", "langs/cpp.js", "content_script.js" ],
       "matches": [ "http://*/*.cpp", "https://*/*.cpp", "file:///*/*.cpp",  	
 					"http://*/*.cpp?*", "https://*/*.cpp?*", "file:///*/*.cpp?*",
+					"http://*/*.cc?*", "https://*/*.cc?*", "file:///*/*.cc?*",
 					"http://*/*.c", "https://*/*.c", "file:///*/*.c",  
 					"http://*/*.c?*", "https://*/*.c?*", "file:///*/*.c?*" ],
       "run_at": "document_end"
@@ -182,5 +184,5 @@
       "48": "syntaxtic_48x48.png"
    },
    "name": "Syntaxtic!",
-   "version": "1.1.26"
+   "version": "1.1.28"
 }
