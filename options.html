@@ -6,10 +6,16 @@
 var background;
 var settings;
 
-function comboBoxChanged() {
+function themeChanged() {
 	var box = document.options.themeSelect;
 	var val = box.options[box.selectedIndex].value;
 	settings.theme = val;
+}
+
+function sizeChanged() {
+	var box = document.options.sizeSelect;
+	var val = box.options[box.selectedIndex].value;
+	settings.fontSize = val;
 }
 
 function initOptionsPage() {
@@ -17,6 +23,7 @@ function initOptionsPage() {
 	settings = background.syntaxtic.settings;
 	
 	document.options.themeSelect.value = settings.theme;
+	document.options.sizeSelect.value = settings.fontSize;
 	
 	console.log("theme is " + settings.theme);
 }
@@ -27,7 +34,7 @@ function initOptionsPage() {
 <body onLoad="initOptionsPage();">
 	<form name=options>
 		<p>
-			<select id=themeSelect name=themeSelect size=1 onChange="comboBoxChanged()">
+			<select id=themeSelect name=themeSelect size=1 onChange="themeChanged()">
 				<option value="shThemeDefault.css" SELECTED>Default</option>
 				<option value="shThemeDjango.css">Django</option>
 				<option value="shThemeEclipse.css">Eclipse</option>
@@ -36,6 +43,17 @@ function initOptionsPage() {
 				<option value="shThemeMDUltra.css">MDUltra</option>
 				<option value="shThemeMidnight.css">Midnight</option>
 				<option value="shThemeRDark.css">RDark</option>
+			</select>
+		</p>
+		<p>
+			<select id=sizeSelect name=sizeSelect size=1 onChange="sizeChanged()">
+				<option value="xx-small">Itty Bitty</option>
+				<option value="x-small">Really Small</option>
+				<option value="small">Small</option>
+				<option value="medium" SELECTED>Normal</option>
+				<option value="large">Big</option>
+				<option value="x-large">Really Big</option>
+				<option value="xx-large">Gargantuan</option>
 			</select>
 		</p>
 	</form>

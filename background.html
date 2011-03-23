@@ -5,7 +5,10 @@
 function SyntaxticSettings() {
 
 	var _theme = localStorage["syntaxtic.settings.theme"];
+	var _fontSize = localStorage["syntaxtic.settings.fontSize"];
+	
 	var _defaultTheme = "shThemeMidnight.css";
+	var _defaultFontSize = "normal";
 	
 	this.__defineGetter__("theme", function(){
 		return localStorage["syntaxtic.settings.theme"] || (_theme || _defaultTheme) ;
@@ -13,6 +16,14 @@ function SyntaxticSettings() {
     this.__defineSetter__("theme", function(val){
 		_theme = val;
 		localStorage["syntaxtic.settings.theme"] = val;
+    });
+	
+	this.__defineGetter__("fontSize", function(){
+		return localStorage["syntaxtic.settings.fontSize"] || (_fontSize || _defaultFontSize) ;
+    });
+    this.__defineSetter__("fontSize", function(val){
+		_fontSize = val;
+		localStorage["syntaxtic.settings.fontSize"] = val;
     });
 }
 

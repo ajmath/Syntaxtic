@@ -1,7 +1,6 @@
 var settings;
 
 chrome.extension.sendRequest({method: "getSettings"}, function(response) {
-	console.log("got settings from background!  theme = " + response.settings.theme);
 	settings = response.settings;
   
 	if (syntaxtic.windowLoaded)
@@ -48,6 +47,7 @@ var syntaxtic = {
 					document.body.innerHTML = '<!-- 003ew0hdafa1119dadfa39aje --> ' + '<script type="syntaxhighlighter"' +
 					' class="brush: ' + brushAlias + '"><![CDATA[' + document.body.firstChild.innerHTML + ']]></script>';
 				}
+				
 
 				var css1 = document.createElement("link");
 				css1.href = chrome.extension.getURL("styles/shCore.css");
@@ -113,6 +113,15 @@ var syntaxtic = {
 			else
 				return "cpp";
 		}
+		
+		function changeFontSize() {
+			var styleElement = document.createElement('style');
+			styleElement.type = 'text/css';
+			styleElement.id = 'fontSizeOverride';
+			document.getElementsByTagName('head')[0].appendChild(styleElement);
+			var newNode = document.createTextNode("body {font-size: " + settings.fontSize + " !important;}");
+			styleElement.appendChild(newNode);
+		}
 
 		/////////////////////////
 		// MAIN
@@ -126,9 +135,9 @@ var syntaxtic = {
 			if(brushAlias == 'cHeader')
 				brushAlias = checkForObjectiveC();
 			
-			console.log("starting highlight");
 			highlight();
-			console.log("highlight done");
+			
+			changeFontSize();
 		}
 	}
 };
