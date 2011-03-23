@@ -1,20 +1,27 @@
-var syntaxticBackground = function() {
 
-	var theme = "the theme";
-	return {
-		getTheme : function() {
-			return theme;
-		},
-		setTheme :function(newTheme) {
-			theme = newTheme;
-		}
-	};
+function SyntaxticSettings() {
+	this._theme = "";
+	
+	this.__defineGetter__("theme", function(){
+        return this._theme;
+    });
+    this.__defineSetter__("theme", function(val){
+        this._theme = val;
+    });
 }
 
+	
+var syntaxtic = {
+	settings : new SyntaxticSettings()
+};
 
+
+	
+	
+	
 chrome.tabs.onUpdated.addListener(
 	function(tabId, change, tab) {
-		console.log("the theme is " + syntaxticBackground.getTheme());
+		console.log("the theme is " + syntaxtic.settings.theme);
 	}
 );
 

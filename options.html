@@ -13,21 +13,24 @@ function include(file) {
 }
 	
 function comboBoxChanged() {
-	console.log("combobox changed!");
-	var box = document.themeSelector.themeComboBox;
+	console.log("theme was " + syntaxtic.settings.theme);
+	var box = document.options.themeSelect;
 	var val = box.options[box.selectedIndex].value;
-	syntaxticBackground['setTheme'](val);
-	
-	
+	syntaxtic.settings.theme = val;
+}
+
+function initOptionsPage() {
+	include('background.js');
+	document.options.themeSelect.value = syntaxtic.settings.theme;
 }
 
 </script>
 </head>
 
-<body onLoad="include('background.js');">
-	<form name=themeSelector>
+<body onLoad="initOptionsPage();">
+	<form name=options>
 		<p>
-			<select name=themeComboBox size=1 onChange="comboBoxChanged()">
+			<select id=themeSelect name=themeSelect size=1 onChange="comboBoxChanged()">
 				<option value="" SELECTED>Theme selection</option>
 				<option value="shThemeDefault.css">Default</option>
 				<option value="shThemeDjango.css">Django</option>
