@@ -3,25 +3,22 @@
 
 
 <script>
-function include(file) {
-	script = document.createElement('script');
-	script.src = file;
-	script.type = 'text/javascript';
-	
-	var head = document.getElementsByTagName('head')[0];
-	head.appendChild(script);
-}
-	
+var background;
+var settings;
+
 function comboBoxChanged() {
-	console.log("theme was " + syntaxtic.settings.theme);
 	var box = document.options.themeSelect;
 	var val = box.options[box.selectedIndex].value;
-	syntaxtic.settings.theme = val;
+	settings.theme = val;
 }
 
 function initOptionsPage() {
-	include('background.js');
-	document.options.themeSelect.value = syntaxtic.settings.theme;
+	background = chrome.extension.getBackgroundPage();
+	settings = background.syntaxtic.settings;
+	
+	document.options.themeSelect.value = settings.theme;
+	
+	console.log("theme is " + settings.theme);
 }
 
 </script>
@@ -31,8 +28,7 @@ function initOptionsPage() {
 	<form name=options>
 		<p>
 			<select id=themeSelect name=themeSelect size=1 onChange="comboBoxChanged()">
-				<option value="" SELECTED>Theme selection</option>
-				<option value="shThemeDefault.css">Default</option>
+				<option value="shThemeDefault.css" SELECTED>Default</option>
 				<option value="shThemeDjango.css">Django</option>
 				<option value="shThemeEclipse.css">Eclipse</option>
 				<option value="shThemeEmacs.css">Emacs</option>

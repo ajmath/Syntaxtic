@@ -185,7 +185,7 @@
       "48": "syntaxtic_48x48.png"
    },
    "name": "Syntaxtic!",
-   "background_page": "background.js",
+   "background_page": "background.html",
    "options_page": "options.html",
    "permissions": ["tabs", "background"],
    "version":"0"
