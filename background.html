@@ -20,6 +20,15 @@ var syntaxtic = {
 	settings : new SyntaxticSettings()
 };	
 	
+chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
+//	if (sender.id !=== 'cgjalgdhmbpaacnnejmodfinclbdgaci')
+//		return;
+		
+    if (request.method == "getSettings")
+      sendResponse({settings: syntaxtic.settings});
+    else
+      sendResponse({}); // snub them.
+});
 
 </script>
 </head>
