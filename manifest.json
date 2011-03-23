@@ -179,11 +179,11 @@
 					"http://*/*.py?*", "https://*/*.py?*", "file:///*/*.py?*" ],
       "run_at": "document_end"
    } ],
-   "description": "Preforms syntax highlighting on files visited in the browser based on thier extension",
+   "description": "Performs syntax highlighting on files visited in the browser based on thier extension",
    "icons": {
       "128": "syntaxtic_128x128.png",
       "48": "syntaxtic_48x48.png"
    },
    "name": "Syntaxtic!",
-   "version": "1.1.28"
+   "version":"0"
 }
