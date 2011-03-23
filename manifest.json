@@ -145,6 +145,7 @@
       "js": [ "scripts/shCore.js", "scripts/shBrushCpp.js", "langs/cpp.js", "content_script.js" ],
       "matches": [ "http://*/*.cpp", "https://*/*.cpp", "file:///*/*.cpp",  	
 					"http://*/*.cpp?*", "https://*/*.cpp?*", "file:///*/*.cpp?*",
+					"http://*/*.cc", "https://*/*.cc", "file:///*/*.cc",
 					"http://*/*.cc?*", "https://*/*.cc?*", "file:///*/*.cc?*",
 					"http://*/*.c", "https://*/*.c", "file:///*/*.c",  
 					"http://*/*.c?*", "https://*/*.c?*", "file:///*/*.c?*" ],
@@ -161,7 +162,7 @@
 					"http://*/*.sh?*", "https://*/*.sh?*", "file:///*/*.sh?*" ],
       "run_at": "document_end"
    }, {
-      "js": [ "scripts/shCore.js", "scripts/shBrushCSharp.js", "langs/as3.js", "content_script.js" ],
+      "js": [ "scripts/shCore.js", "scripts/shBrushAS3.js", "langs/as3.js", "content_script.js" ],
       "matches": [ "http://*/*.as", "https://*/*.as", "file:///*/*.as", 	
 					"http://*/*.as?*", "https://*/*.as?*", "file:///*/*.as?*",
 					"http://*/*.actionscript", "https://*/*.actionscript", "file:///*/*.actionscript", 
