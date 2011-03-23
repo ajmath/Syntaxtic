@@ -1,1 +1,1 @@
-cat manifest.json | sed 's/"//g' | awk '/version/ {print $2}' -
+cat manifest.json | sed 's/"//g' | sed 's/:/ /' | awk '/version/ {print $2}' -
