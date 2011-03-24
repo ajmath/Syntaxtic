@@ -23,7 +23,9 @@
 .syntaxhighlighter table tbody,
 .syntaxhighlighter table thead,
 .syntaxhighlighter table caption,
-.syntaxhighlighter textarea {
+.syntaxhighlighter textarea,
+.syntaxhighlighter select,
+.syntaxhighlighter label{
   -moz-border-radius: 0 0 0 0 !important;
   -webkit-border-radius: 0 0 0 0 !important;
   background: none !important;
@@ -50,6 +52,10 @@
   font-size: 1em !important;
   min-height: inherit !important;
   min-height: auto !important;
+}
+.syntaxhighlighter select {
+  display: inline;
+  -webkit-box-align: start;
 }
 
 .syntaxhighlighter {
