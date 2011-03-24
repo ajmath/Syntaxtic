@@ -187,6 +187,5 @@
    "name": "Syntaxtic!",
    "background_page": "background.html",
    "options_page": "options.html",
-   "permissions": ["tabs", "background"],
    "version":"0"
 }
