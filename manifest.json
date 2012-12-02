@@ -189,7 +189,7 @@
       "page" : "background.html"
    },
    "options_page": "options.html",
-   "version":"0"
+   "version":"0",
    "manifest_version": 2,
    "web_accessible_resources": [
       "styles/*",
