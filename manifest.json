@@ -185,7 +185,25 @@
       "48": "syntaxtic_48x48.png"
    },
    "name": "Syntaxtic!",
-   "background_page": "background.html",
+   "background": {
+      "page" : "background.html"
+   },
    "options_page": "options.html",
-   "version":"0"
+   "version":"0",
+   "manifest_version": 2,
+   "web_accessible_resources": [
+      "styles/*",
+      "scripts/*"
+   ],
+   "page_action": {
+      "default_icon":"syntaxtic_48x48.png",
+      "default_title":"Toggle",
+      "default_popup":"popup.html"
+   },
+   "permissions":[
+      "tabs",
+      "http://*/*",
+      "https://*/*",
+      "file://*/*"
+   ]
 }
