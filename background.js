@@ -1,3 +1,8 @@
+chrome.browserAction.onClicked.addListener(function(tab) {
+  chrome.tabs.executeScript(
+      null, {code:"var gutter = document.getElementsByClassName('gutter')[0]; if (gutter === undefined) {document.getElementsByClassName('nogutter')[0].className='gutter'; } else {gutter.className='nogutter'; }; "});
+});
+
 function SyntaxticSettings() {
 
   var _theme = localStorage["syntaxtic.settings.theme"];

@@ -194,5 +194,14 @@
    "web_accessible_resources": [
       "styles/*",
       "scripts/*"
+   ],
+   "browser_action": {
+      "default_icon":"syntaxtic_48x48.png"
+   },
+   "permissions":[
+      "tabs",
+      "http://*/*",
+      "https://*/*",
+      "file://*/*"
    ]
 }
