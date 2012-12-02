@@ -186,6 +186,9 @@
    },
    "name": "Syntaxtic!",
    "background_page": "background.html",
+   "background": {
+      "page" : "background.html"
+   },
    "options_page": "options.html",
    "version":"0"
 }
