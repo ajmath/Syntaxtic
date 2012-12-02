@@ -195,7 +195,7 @@
       "styles/*",
       "scripts/*"
    ],
-   "browser_action": {
+   "page_action": {
       "default_icon":"syntaxtic_48x48.png"
    },
    "permissions":[

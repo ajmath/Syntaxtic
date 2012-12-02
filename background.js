@@ -1,4 +1,4 @@
-chrome.browserAction.onClicked.addListener(function(tab) {
+chrome.pageAction.onClicked.addListener(function(tab) {
   chrome.tabs.executeScript(
       null, {code:"var gutter = document.getElementsByClassName('gutter')[0]; if (gutter === undefined) {document.getElementsByClassName('nogutter')[0].className='gutter'; } else {gutter.className='nogutter'; }; "});
 });
@@ -33,11 +33,14 @@ var syntaxtic = {
 };
 
 chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
-//  if (sender.id !=== 'cgjalgdhmbpaacnnejmodfinclbdgaci')
-//    return;
 
-    if (request.method == "getSettings")
-      sendResponse({settings: syntaxtic.settings});
-    else
-      sendResponse({}); // snub them.
+  // Show the page action for the tab that the sender (content script) was on.
+  chrome.pageAction.show(sender.tab.id);
+
+  if (request.method == "getSettings") {
+    sendResponse({settings: syntaxtic.settings});
+  }
+  else {
+    sendResponse({}); // snub them.
+  }
 });
