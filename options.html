@@ -1,68 +1,6 @@
 <html>
 <head>
-<script>
-var settings = chrome.extension.getBackgroundPage().syntaxtic.settings;
-
-var style = document.createElement('link');
-style.type = 'text/css';
-style.id = 'theme-style';
-style.rel = "stylesheet";
-style.href = chrome.extension.getURL("styles/" + settings.theme);
-document.head.appendChild(style);
-
-style = document.createElement('link');
-style.type = 'text/css';
-style.id = 'theme-style';
-style.rel = "stylesheet";
-style.href = chrome.extension.getURL("styles/shCore.css");
-document.head.appendChild(style);
-
-style = document.createElement('link');
-style.type = 'text/css';
-style.id = 'theme-style';
-style.rel = "stylesheet";
-style.href = chrome.extension.getURL("styles/shCore.css");
-document.head.appendChild(style);
-
-var script = document.createElement('script');
-script.src = chrome.extension.getURL("scripts/shCore.js");
-script.type = 'text/javascript';
-document.head.appendChild(script);
-
-script = document.createElement('script');
-script.src = chrome.extension.getURL("scripts/shBrushCSharp.js");
-script.type = 'text/javascript';
-document.head.appendChild(script);
-
-function themeChanged() {
-	var box = document.getElementById('themeSelect');
-	var val = box.options[box.selectedIndex].value;
-	settings.theme = val;
-	
-	document.getElementById('theme-style').href = chrome.extension.getURL("styles/" + settings.theme);
-}
-
-function sizeChanged() {
-	var box = document.getElementById('sizeSelect');
-	var val = box.options[box.selectedIndex].value;
-	settings.fontSize = val;
-	
-	document.getElementById('textSize').innerHTML = ".syntaxhighlighter {font-size: " + settings.fontSize + " !important;}";
-}
-
-function initOptionsPage() {
-	
-	document.getElementById('themeSelect').value = settings.theme;
-	document.getElementById('sizeSelect').value = settings.fontSize;
-	
-	style = document.createElement('style');
-	style.type = 'text/css';
-	style.id = 'textSize';
-	document.head.appendChild(style);
-	style.innerHTML = ".syntaxhighlighter {font-size: " + settings.fontSize + " !important;}"
-}
-
-</script>
+	<script type="text/javascript" src="options.js"></script>
 </head>
 <body onLoad="initOptionsPage();" class="syntaxhighlighter">
 	<table border="0" cellpadding="0" cellspacing="0">
@@ -113,7 +51,7 @@ function initOptionsPage() {
 			<div class="line number16 index15 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">{</code></div>
 			<div class="line number17 index16 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">public</code> <code class="csharp plain">Settings()</code></div>
 			<div class="line number18 index17 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">{</code></div>
-			
+
 			<div class="line number19 index18 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">var</code> <code class="csharp plain">colorTheme = </code><select id=themeSelect name=sizeSelect  onChange="themeChanged()" >
 					<option value="shThemeDefault.css" SELECTED>Default</option>
 					<option value="shThemeDjango.css">Django</option>
