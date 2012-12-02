@@ -1,6 +1,6 @@
 chrome.pageAction.onClicked.addListener(function(tab) {
   chrome.tabs.executeScript(
-      null, {code:"var gutter = document.getElementsByClassName('gutter')[0]; if (gutter === undefined) {document.getElementsByClassName('nogutter')[0].className='gutter'; } else {gutter.className='nogutter'; }; "});
+      null, {code:"var gutter = document.getElementsByClassName('gutter')[0];if (gutter.style.display == ''){ gutter.style.display='none';} else{ gutter.style.display='';}"});
 });
 
 function SyntaxticSettings() {
