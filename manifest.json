@@ -185,7 +185,6 @@
       "48": "syntaxtic_48x48.png"
    },
    "name": "Syntaxtic!",
-   "background_page": "background.html",
    "background": {
       "page" : "background.html"
    },
