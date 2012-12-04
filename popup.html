@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Toggle Syntaxtic</title>
+    <style type="text/css">
+      body {
+        overflow: hidden;
+        margin: 0px;
+        padding: 0px;
+        background: white;
+      }
+      div:first-child {
+        margin-top: 0px;
+      }
+
+      div {
+        text-align: center;
+        padding: 1px 3px;
+        font-family: sans-serif;
+        font-size: 0.8em;
+        width: 100px;
+        margin-top: 1px;
+        background: #cccccc;
+      }
+      div.click {
+        cursor: pointer;
+      }
+      div.noclick {
+        text-align: left;
+        cursor: normal;
+      }
+    </style>
+    <script src="popup.js"></script>
+  </head>
+  <body>
+    <div class="noclick"><strong>Toggle:</strong></div>
+    <div id="gutter" class="click">Line numbers</div>
+    <div id="hilight" class="click">Hilight</div>
+  </body>
+</html>
