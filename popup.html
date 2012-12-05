@@ -4,37 +4,23 @@
     <title>Toggle Syntaxtic</title>
     <style type="text/css">
       body {
-        overflow: hidden;
-        margin: 0px;
-        padding: 0px;
-        background: white;
-      }
-      div:first-child {
-        margin-top: 0px;
-      }
-
-      div {
-        text-align: center;
-        padding: 1px 3px;
-        font-family: sans-serif;
-        font-size: 0.8em;
-        width: 100px;
-        margin-top: 1px;
-        background: #cccccc;
-      }
-      div.click {
-        cursor: pointer;
-      }
-      div.noclick {
-        text-align: left;
-        cursor: normal;
+        font-size: 75%;
+        font-family: Helvetica, Arial, sans-serif;
+        min-width: 120px;
+        background: #ffffff;
+        color: #000000;
       }
     </style>
     <script src="popup.js"></script>
   </head>
   <body>
-    <div class="noclick"><strong>Toggle:</strong></div>
-    <div id="gutter" class="click">Line numbers</div>
-    <div id="hilight" class="click">Hilight</div>
+    <div>
+      <input type="checkbox" id="gutter" class="clicker" checked/>
+      <label for="gutter">Line numbers</label>
+    </div>
+    <div>
+      <input type="checkbox" id="hilight" class="clicker" checked/>
+      <label for="highlight">Highlight</label>
+    </div>
   </body>
 </html>
