@@ -1,1 +1,3 @@
-cat manifest.json | sed 's/"//g' | sed 's/:/ /' | awk '/version/ {print $2}' -
+#!/bin/sh
+
+cat manifest.json | grep '"version"' | cut -d':' -f 2 | tr -d '",'
