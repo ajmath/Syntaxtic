@@ -61,6 +61,10 @@ var syntaxtic = {
 				css2.rel = "stylesheet";
 				document.head.appendChild(css2);
 
+        var css3 = document.createElement("style");
+        css3.appendChild(document.createTextNode(".toolbar {display:none}"));
+        document.head.appendChild(css3);
+
 				SyntaxHighlighter.highlight();
 			}
 		}
