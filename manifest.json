@@ -1,28 +1,5 @@
 {
    "content_scripts": [ {
-      "js": [ "scripts/shCore.js", "scripts/shBrushXml.js", "langs/xml.js", "content_script.js" ],
-      "matches": [ "http://*/*.config", "https://*/*.config", "file:///*/*.config", 
-				   "http://*/*.config?*", "https://*/*.config?*", "file:///*/*.config?*",
-				   "http://*/*.xml", "https://*/*.xml", "file:///*/*.xml", 
-				   "http://*/*.xml?*", "https://*/*.xml?*", "file:///*/*.xml?*", 
-				   "http://*/*.build", "https://*/*.build", "file:///*/*.build", 
-				   "http://*/*.build?*", "https://*/*.build?*", "file:///*/*.build?*",
-				   "http://*/*.wsdl", "https://*/*.wsdl", "file:///*/*.wsdl",
-				   "http://*/*.wsdl?*", "https://*/*.wsdl?*", "file:///*/*.wsdl?*",  
-				   "http://*/*.xib", "https://*/*.xib", "file:///*/*.xib",
-				   "http://*/*.xib?*", "https://*/*.xib?*", "file:///*/*.xib?*",
-				   "http://*/*.vbproj", "https://*/*.vbproj", "file:///*/*.vbproj", 
-				   "http://*/*.vbproj?*", "https://*/*.vbproj?*", "file:///*/*.vbproj?*",
-				   "http://*/*.csproj", "https://*/*.csproj", "file:///*/*.csproj", 
-				   "http://*/*.csproj?*", "https://*/*.csproj?*", "file:///*/*.csproj?*",
-				   "http://*/*.xsd", "https://*/*.xsd", "file:///*/*.xsd",  
-				   "http://*/*.xsd?*", "https://*/*.xsd?*", "file:///*/*.xsd?*",
-				   "http://*/*.plist", "https://*/*.plist", "file:///*/*.plist",
-				   "http://*/*.plist?*", "https://*/*.plist?*", "file:///*/*.plist?*"
-				],
-      "run_at": "document_end"
-   },
-      {
       "js": [ "scripts/shCore.js", "scripts/shBrushLatex.js", "langs/tex.js", "content_script.js" ],
       "matches": [ "http://*/*.tex", "https://*/*.tex", "file:///*/*.tex",
 				   "http://*/*.tex?*", "https://*/*.tex?*", "file:///*/*.tex?*"],
