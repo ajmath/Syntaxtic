@@ -75,7 +75,8 @@
       "js": [ "scripts/shCore.js", "scripts/shBrushPerl.js", "langs/perl.js", "content_script.js" ],
       "matches": [ "http://*/*.pl", "https://*/*.pl", "file:///*/*.pl", 
 					"http://*/*.pm", "https://*/*.pm", "file:///*/*.pm", 
-					"http://*/*.perl", "https://*/*.perl", "file:///*/*.perl"],
+					"http://*/*.perl", "https://*/*.perl", "file:///*/*.perl",
+          "http://*/*.plx", "https://*/*.plx", "file:///*/*.plx"],
       "run_at": "document_end"
    }, {
       "js": [ "scripts/shCore.js", "scripts/shBrushJavaFX.js", "langs/javafx.js", "content_script.js" ],
