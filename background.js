@@ -60,10 +60,12 @@ var syntaxtic = {
 
 chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
 
-  // Show the page action for the tab that the sender (content script) was on.
-  chrome.pageAction.show(sender.tab.id);
-
-  if (request.method == "getSettings") {
+  if (request.method == "getSettingsWithAction") {
+    // Show the page action for the tab that the sender (content script) was on.
+    chrome.pageAction.show(sender.tab.id);
+    sendResponse({settings: syntaxtic.settings});
+  }
+  else if (request.method == "getSettings") {
     sendResponse({settings: syntaxtic.settings});
   }
   else {

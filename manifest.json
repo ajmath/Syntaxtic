@@ -193,7 +193,8 @@
    "manifest_version": 2,
    "web_accessible_resources": [
       "styles/*",
-      "scripts/*"
+      "scripts/*",
+      "toggle_*"
    ],
    "page_action": {
       "default_icon":"syntaxtic_48x48.png",

@@ -1,6 +1,6 @@
 var settings;
 
-chrome.extension.sendRequest({method: "getSettings"}, function(response) {
+chrome.extension.sendRequest({method: "getSettingsWithAction"}, function(response) {
 	settings = response.settings;
   
 	if (syntaxtic.windowLoaded)
@@ -127,6 +127,27 @@ var syntaxtic = {
 			styleElement.appendChild(newNode);
 		}
 
+    function applyPageSpecificSettings() {
+      if(settings.gutterBlacklist.indexOf(document.location.href) > -1) {
+        loadScript(chrome.extension.getURL("toggle_gutter.js"));
+      }
+      if(settings.highlightBlacklist.indexOf(document.location.href) > -1) {
+        loadScript(chrome.extension.getURL("toggle_highlight.js"));
+      }
+    }
+
+    function loadScript(url, callback) {
+      var head = document.getElementsByTagName('head')[0];
+      var script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = url;
+
+      script.onreadystatechange = callback;
+      script.onload = callback;
+
+      head.appendChild(script);
+    }
+
 		/////////////////////////
 		// MAIN
 		/////////////////////////
@@ -141,7 +162,8 @@ var syntaxtic = {
 			
 			highlight();
 			
-			changeFontSize();
+      changeFontSize();
+      applyPageSpecificSettings();
 		}
 	}
 };
