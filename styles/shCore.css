@@ -231,3 +231,6 @@
 .syntaxhighlighter.printing .break, .syntaxhighlighter.printing .break a {
   color: black !important;
 }
+body{
+  margin: 0px;
+}
