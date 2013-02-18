@@ -72,14 +72,14 @@ var syntaxtic = {
 		var beautifyCsv = function() {
 			var strData = document.body.firstChild.innerHTML;
 			var csvArray = CsvToArray(strData, ",");
-			var maxColLengthsHash = new Array();
+			var maxColLengthsHash = [];
 			for(var i = 0; i< csvArray[0].length; i++)
 				maxColLengthsHash[i] = -1;
 
-			var csvArrayDecoded = new Array();
+			var csvArrayDecoded = [];
 			for(var i =0; i < csvArray.length; i++)
 			{
-				csvArrayDecoded[i] = new Array();
+				csvArrayDecoded[i] = [];
 				for(var j =0; j < csvArray[i].length; j++)
 				{
 					var orig = csvArray[i][j];
