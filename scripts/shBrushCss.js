@@ -8,12 +8,12 @@
 		function getKeywordsCSS(str)
 		{
 			return '\\b([a-z_]|)' + str.replace(/ /g, '(?=:)\\b|\\b([a-z_\\*]|\\*|)') + '(?=:)\\b';
-		};
-	
+		}
+
 		function getValuesCSS(str)
 		{
 			return '\\b' + str.replace(/ /g, '(?!-)(?!:)\\b|\\b()') + '\:\\b';
-		};
+		}
 
 		var keywords =	'ascent azimuth background-attachment background-color background-image background-position ' +
 						'background-repeat background baseline bbox border-collapse border-color border-spacing border-style border-top ' +
@@ -46,7 +46,7 @@
 						'upper-roman url visible wait white wider w-resize x-fast x-high x-large x-loud x-low x-slow x-small x-soft xx-large xx-small yellow';
 
 		var fonts =		'[mM]onospace [tT]ahoma [vV]erdana [aA]rial [hH]elvetica [sS]ans-serif [sS]erif [cC]ourier mono sans serif';
-	
+
 		this.regexList = [
 			{ regex: SyntaxHighlighter.regexLib.multiLineCComments,		css: 'comments' },	// multiline comments
 			{ regex: SyntaxHighlighter.regexLib.doubleQuotedString,		css: 'string' },	// double quoted strings
@@ -59,11 +59,11 @@
 			{ regex: new RegExp(this.getKeywords(fonts), 'g'),			css: 'color1' }		// fonts
 			];
 
-		this.forHtmlScript({ 
-			left: /(&lt;|<)\s*style.*?(&gt;|>)/gi, 
-			right: /(&lt;|<)\/\s*style\s*(&gt;|>)/gi 
+		this.forHtmlScript({
+			left: /(&lt;|<)\s*style.*?(&gt;|>)/gi,
+			right: /(&lt;|<)\/\s*style\s*(&gt;|>)/gi
 			});
-	};
+	}
 
 	Brush.prototype	= new SyntaxHighlighter.Highlighter();
 	Brush.aliases	= ['css'];
@@ -71,5 +71,5 @@
 	SyntaxHighlighter.brushes.CSS = Brush;
 
 	// CommonJS
-	typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
+	typeof(exports) !== 'undefined' ? exports.Brush = Brush : null;
 })();

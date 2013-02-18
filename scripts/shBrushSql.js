@@ -37,7 +37,7 @@
 			{ regex: new RegExp(this.getKeywords(operators), 'gmi'),			css: 'color1' },			// operators and such
 			{ regex: new RegExp(this.getKeywords(keywords), 'gmi'),				css: 'keyword' }			// keyword
 			];
-	};
+	}
 
 	Brush.prototype	= new SyntaxHighlighter.Highlighter();
 	Brush.aliases	= ['sql'];
@@ -45,6 +45,6 @@
 	SyntaxHighlighter.brushes.Sql = Brush;
 
 	// CommonJS
-	typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
+	typeof(exports) !== 'undefined' ? exports.Brush = Brush : null;
 })();
 

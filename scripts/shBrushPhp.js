@@ -45,7 +45,7 @@
 						'function global goto if implements include include_once interface instanceof insteadof namespace new ' +
 						'old_function or private protected public return require require_once static switch ' +
 						'trait throw try use var while xor ';
-		
+
 		var constants	= '__FILE__ __LINE__ __METHOD__ __FUNCTION__ __CLASS__';
 
 		this.regexList = [
@@ -60,7 +60,7 @@
 			];
 
 		this.forHtmlScript(SyntaxHighlighter.regexLib.phpScriptTags);
-	};
+	}
 
 	Brush.prototype	= new SyntaxHighlighter.Highlighter();
 	Brush.aliases	= ['php'];
@@ -68,5 +68,5 @@
 	SyntaxHighlighter.brushes.Php = Brush;
 
 	// CommonJS
-	typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
+	typeof(exports) !== 'undefined' ? exports.Brush = Brush : null;
 })();
