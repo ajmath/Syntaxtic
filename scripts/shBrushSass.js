@@ -74,5 +74,5 @@
 	SyntaxHighlighter.brushes.Sass = Brush;
 
 	// CommonJS
-	typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
+	typeof(exports) !== 'undefined' ? exports.Brush = Brush : null;
 })();

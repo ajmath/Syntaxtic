@@ -42,7 +42,7 @@ var syntaxtic = {
 		var highlight = function() {
 			if(!document.body.innerHTML.match("003ew0hdafa1119dadfa39aje"))
 			{
-				if(document.body.firstChild != null && document.body.firstChild == document.body.lastChild)
+				if(document.body.firstChild !== null && document.body.firstChild == document.body.lastChild)
 				{
 					document.body.innerHTML = '<!-- 003ew0hdafa1119dadfa39aje --> ' + '<script type="syntaxhighlighter"' +
 					' class="brush: ' + brushAlias + '"><![CDATA[' + document.body.firstChild.innerHTML + ']]></script>';
@@ -112,7 +112,7 @@ var syntaxtic = {
 		var checkForObjectiveC = function()
 		{
 			var strData = document.body.innerHTML;
-			if(strData.match(/(@interface|@protocol|@INTERFACE|@PROTOCOL)/) != null)
+			if(strData.match(/(@interface|@protocol|@INTERFACE|@PROTOCOL)/) !== null)
 				return "objc";
 			else
 				return "cpp";
@@ -152,8 +152,8 @@ var syntaxtic = {
 		// MAIN
 		/////////////////////////
 
-		if(brushAlias != null && brushAlias != 'undefined' && brushAlias != "" && !hasHtmlContentType())
-		{   
+		if(brushAlias !== null && brushAlias !== 'undefined' && brushAlias !== "" && !hasHtmlContentType())
+		{
 			if(brushAlias == 'csv')
 				beautifyCsv();
 				

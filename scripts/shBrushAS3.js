@@ -39,5 +39,5 @@
 	SyntaxHighlighter.brushes.AS3 = Brush;
 
 	// CommonJS
-	typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
+	typeof(exports) !== 'undefined' ? exports.Brush = Brush : null;
 })();

@@ -19,7 +19,7 @@ dp.SyntaxHighlighter = {
 				;
 			
 			for (var i = 0; i < list.length; i++) 
-				if ((match = regex.exec(list[i])) != null)
+				if ((match = regex.exec(list[i])) !== null)
 					return match.value;
 			
 			return null;
@@ -27,12 +27,12 @@ dp.SyntaxHighlighter = {
 		
 		function defaultValue(value, def)
 		{
-			return value != null ? value : def;
+			return value !== null ? value : def;
 		};
 		
 		function asString(value)
 		{
-			return value != null ? value.toString() : null;
+			return value !== null ? value.toString() : null;
 		};
 
 		var parts = input.split(':'),
@@ -80,11 +80,11 @@ dp.SyntaxHighlighter = {
 			{
 				if (a[i] === null) 
 					continue;
-				
-				if (typeof(a[i]) == 'string' && a[i] != '') 
+
+				if (typeof(a[i]) == 'string' && a[i] !== '')
 					return a[i] + '';
-				
-				if (typeof(a[i]) == 'object' && a[i].value != '') 
+
+				if (typeof(a[i]) == 'object' && a[i].value !== '')
 					return a[i].value + '';
 			}
 			

@@ -16,11 +16,11 @@
 
 		function fixComments(match, regexInfo)
 		{
-			var css = (match[0].indexOf("///") == 0)
+			var css = (match[0].indexOf("///") === 0)
 				? 'color1'
 				: 'comments'
 				;
-			
+
 			return [new SyntaxHighlighter.Match(match[0], match.index, css)];
 		}
 
@@ -45,5 +45,5 @@
 	SyntaxHighlighter.brushes.CSharp = Brush;
 
 	// CommonJS
-	typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
+	typeof(exports) !== 'undefined' ? exports.Brush = Brush : null;
 })();

@@ -12,8 +12,8 @@
 				tag = new XRegExp('(&lt;|<)[\\s\\/\\?]*(?<name>[:\\w-\\.]+)', 'xg').exec(code),
 				result = []
 				;
-		
-			if (match.attributes != null) 
+
+			if (match.attributes !== null)
 			{
 				var attributes,
 					regex = new XRegExp('(?<name> [\\w:\\-\\.]+)' +
@@ -21,14 +21,14 @@
 										'(?<value> ".*?"|\'.*?\'|\\w+)',
 										'xg');
 
-				while ((attributes = regex.exec(code)) != null) 
+				while ((attributes = regex.exec(code)) !== null)
 				{
 					result.push(new constructor(attributes.name, match.index + attributes.index, 'color1'));
 					result.push(new constructor(attributes.value, match.index + attributes.index + attributes[0].indexOf(attributes.value), 'string'));
 				}
 			}
 
-			if (tag != null)
+			if (tag !== null)
 				result.push(
 					new constructor(tag.name, match.index + tag[0].indexOf(tag.name), 'keyword')
 				);
@@ -49,5 +49,5 @@
 	SyntaxHighlighter.brushes.Xml = Brush;
 
 	// CommonJS
-	typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
+	typeof(exports) !== 'undefined' ? exports.Brush = Brush : null;
 })();
