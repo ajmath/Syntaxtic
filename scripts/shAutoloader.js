@@ -103,7 +103,7 @@ sh.autoloader = function()
 	function checkAll()
 	{
 		for(var url in scripts)
-			if (scripts[url] == false)
+			if (scripts[url] === false)
 				return;
 
 		if (allCalled)
