@@ -37,10 +37,10 @@ sh.autoloader = function()
 		allCalled = true;
 	};
 
-	function addBrush(aliases, url)
+	function addBrush(aliases, url_param)
 	{
 		for (var i = 0; i < aliases.length; i++)
-			brushes[aliases[i]] = url;
+			brushes[aliases[i]] = url_param;
 	}
 
 	function getAliases(item)
@@ -55,10 +55,10 @@ sh.autoloader = function()
 	for (i = 0; i < list.length; i++)
 	{
 		var aliases = getAliases(list[i]),
-			url = aliases.pop()
+			url_param = aliases.pop()
 			;
 
-		addBrush(aliases, url);
+		addBrush(aliases, url_param);
 	}
 
 	// dynamically add <script /> tags to the document body

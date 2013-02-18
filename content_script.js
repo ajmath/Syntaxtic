@@ -73,8 +73,10 @@ var syntaxtic = {
 			var strData = document.body.firstChild.innerHTML;
 			var csvArray = CsvToArray(strData, ",");
 			var maxColLengthsHash = [];
-			for(var i = 0; i< csvArray[0].length; i++)
-				maxColLengthsHash[i] = -1;
+			for(var h = 0; h< csvArray[0].length; h++)
+			{
+				maxColLengthsHash[h] = -1;
+			}
 
 			var csvArrayDecoded = [];
 			for(var i =0; i < csvArray.length; i++)
@@ -91,18 +93,20 @@ var syntaxtic = {
 			}
 
 			var newCsvData = "";
-			for(var i = 0; i < csvArray.length; i++)
-			for(var j =0; j < csvArray[i].length; j++)
+			for(var k = 0; k < csvArray.length; k++)
 			{
-				for(var k = 0; k <= maxColLengthsHash[j] - csvArrayDecoded[i][j].length; k++)
+				for(var l =0; l < csvArray[k].length; l++)
 				{
-					newCsvData += " ";
+					for(var m = 0; m <= maxColLengthsHash[l] - csvArrayDecoded[k][l].length; m++)
+					{
+						newCsvData += " ";
+					}
+					newCsvData += csvArray[k][l];
+					if(l + 1 == csvArray[k].length)
+						newCsvData += '\n';
+					else
+						newCsvData += ", ";
 				}
-				newCsvData += csvArray[i][j];
-				if(j + 1 == csvArray[i].length)
-					newCsvData += '\n';
-				else
-					newCsvData += ", ";
 			}
 
 			document.body.firstChild.innerHTML = newCsvData;
