@@ -19,7 +19,7 @@ function toggle(e) {
     if(e.target.checked) {
       var idx = blacklist.indexOf(tab.url);
       if(idx != -1) blacklist.splice(idx, 1);
-    } 
+    }
     else {
       blacklist.push(tab.url);
     }

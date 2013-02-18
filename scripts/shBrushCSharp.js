@@ -35,7 +35,7 @@
 			{ regex: /\bpartial(?=\s+(?:class|interface|struct)\b)/g,	css: 'keyword' },			// contextual keyword: 'partial'
 			{ regex: /\byield(?=\s+(?:return|break)\b)/g,				css: 'keyword' }			// contextual keyword: 'yield'
 			];
-		
+
 		this.forHtmlScript(SyntaxHighlighter.regexLib.aspScriptTags);
 	};
 

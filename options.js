@@ -64,7 +64,7 @@ function initOptionsPage() {
 // specific elements when it triggers.
 document.addEventListener('DOMContentLoaded', function () {
   document.querySelector('#sizeSelect').addEventListener('change', sizeChanged);
-  document.querySelector('#themeSelect').addEventListener('change', themeChanged); 
+  document.querySelector('#themeSelect').addEventListener('change', themeChanged);
   initOptionsPage();
 });
 

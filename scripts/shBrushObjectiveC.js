@@ -7,7 +7,7 @@
  *
  * @author
  * Geoffrey Byers
- * 
+ *
  * @copyright
  * Copyright (C) 2009 Geoffrey Byers.
  *
@@ -20,11 +20,11 @@
  *  Copyright (C) 2006 Shin, YoungJin.
  *  http://scottdensmore.typepad.com/blog/2008/12/objective-c-cocoa-syntax-highlighter.html
  */
- 
+
 SyntaxHighlighter.brushes.ObjC = function()
 {
     var datatypes = 'char bool BOOL double float int long short id void';
-     
+
     var keywords = 'IBAction IBOutlet SEL YES NO readwrite readonly nonatomic retain nil NULL ';
     keywords += 'super self copy ';
     keywords += 'break case catch class const copy __finally __exception __try ';
@@ -37,8 +37,8 @@ SyntaxHighlighter.brushes.ObjC = function()
     keywords += 'thread throw true false try typedef typeid typename union ';
     keywords += 'using uuid virtual volatile whcar_t while';
     // keywords += '@property @selector @interface @end @implementation @synthesize ';
-     
-         
+
+
     this.regexList = [
         { regex: SyntaxHighlighter.regexLib.singleLineCComments,        css: 'comments' },      // one line comments
         { regex: SyntaxHighlighter.regexLib.multiLineCComments,     css: 'comments' },      // multiline comments
@@ -50,7 +50,7 @@ SyntaxHighlighter.brushes.ObjC = function()
         { regex: new RegExp('\\bNS\\w+\\b', 'g'),                   css: 'keyword' },           // keyword
         { regex: new RegExp('@\\w+\\b', 'g'),                       css: 'keyword' },           // keyword
         ];
-     
+
 }
 
 SyntaxHighlighter.brushes.ObjC.prototype	= new SyntaxHighlighter.Highlighter();

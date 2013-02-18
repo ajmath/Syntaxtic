@@ -6,7 +6,7 @@
 	function Brush()
 	{
 		// Contributed by Gheorghe Milas and Ahmad Sherif
-	
+
 		var keywords =  'and assert break class continue def del elif else ' +
 						'except exec finally for from global if import in is ' +
 						'lambda not or pass print raise return try yield while';
@@ -34,7 +34,7 @@
 				{ regex: new RegExp(this.getKeywords(keywords), 'gm'), 		css: 'keyword' },
 				{ regex: new RegExp(this.getKeywords(special), 'gm'), 		css: 'color1' }
 				];
-			
+
 		this.forHtmlScript(SyntaxHighlighter.regexLib.aspScriptTags);
 	};
 
