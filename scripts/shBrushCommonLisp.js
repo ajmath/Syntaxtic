@@ -16,7 +16,7 @@ SyntaxHighlighter.brushes.CommonLisp = function()
     ];
 
     this.forHtmlScript(SyntaxHighlighter.regexLib.aspScriptTags);
-}
+};
 
 SyntaxHighlighter.brushes.CommonLisp.prototype = new SyntaxHighlighter.Highlighter();
 SyntaxHighlighter.brushes.CommonLisp.aliases   = ['lisp', 'cl', 'el'];

@@ -56,7 +56,7 @@ function initOptionsPage() {
   style.type = 'text/css';
   style.id = 'textSize';
   document.head.appendChild(style);
-  style.innerHTML = ".syntaxhighlighter {font-size: " + settings.fontSize + " !important;}"
+  style.innerHTML = ".syntaxhighlighter {font-size: " + settings.fontSize + " !important;}";
 }
 
 // Add event listeners once the DOM has fully loaded by listening for the

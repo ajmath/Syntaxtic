@@ -20,7 +20,7 @@ SyntaxHighlighter.brushes.BibTex = function()
       ];
 
   this.forHtmlScript(SyntaxHighlighter.regexLib.aspScriptTags);
-}
+};
 
 SyntaxHighlighter.brushes.BibTex.prototype     = new SyntaxHighlighter.Highlighter();
 SyntaxHighlighter.brushes.BibTex.aliases       = ['bib', 'bibtex'];

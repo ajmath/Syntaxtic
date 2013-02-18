@@ -37,7 +37,7 @@ var syntaxtic = {
 			}
 
 			return result;
-		}
+		};
 
 		var highlight = function() {
 			if(!document.body.innerHTML.match("003ew0hdafa1119dadfa39aje"))
@@ -67,7 +67,7 @@ var syntaxtic = {
 
 				SyntaxHighlighter.highlight();
 			}
-		}
+		};
 
 		var beautifyCsv = function() {
 			var strData = document.body.firstChild.innerHTML;
@@ -107,7 +107,7 @@ var syntaxtic = {
 
 			document.body.firstChild.innerHTML = newCsvData;
 			brushAlias = "plain";
-		}
+		};
 
 		var checkForObjectiveC = function()
 		{
@@ -116,7 +116,7 @@ var syntaxtic = {
 				return "objc";
 			else
 				return "cpp";
-		}
+		};
 
 		function changeFontSize() {
 			var styleElement = document.createElement('style');

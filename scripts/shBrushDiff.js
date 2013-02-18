@@ -13,7 +13,7 @@
 			{ regex: /^\+.*$/gm,		css: 'string' },	// additions
 			{ regex: /^\-.*$/gm,		css: 'color3' }		// deletions
 			];
-	};
+	}
 
 	Brush.prototype	= new SyntaxHighlighter.Highlighter();
 	Brush.aliases	= ['diff', 'patch'];

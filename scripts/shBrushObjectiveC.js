@@ -51,7 +51,7 @@ SyntaxHighlighter.brushes.ObjC = function()
         { regex: new RegExp('@\\w+\\b', 'g'),                       css: 'keyword' },           // keyword
         ];
 
-}
+};
 
 SyntaxHighlighter.brushes.ObjC.prototype	= new SyntaxHighlighter.Highlighter();
 SyntaxHighlighter.brushes.ObjC.aliases		= ['objc'];
