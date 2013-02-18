@@ -164,7 +164,9 @@
    },
    "name": "Syntaxtic!",
    "background": {
-      "page" : "background.html"
+      "scripts": [
+         "background.js"
+      ]
    },
    "options_page": "options.html",
    "version":"0",
