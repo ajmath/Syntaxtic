@@ -18,9 +18,9 @@
 						'widestring with word write writeln xor';
 
 		this.regexList = [
-			{ regex: /\(\*[\s\S]*?\*\)/gm,								css: 'comments' },  	// multiline comments (* *)
-			{ regex: /{(?!\$)[\s\S]*?}/gm,								css: 'comments' },  	// multiline comments { }
-			{ regex: SyntaxHighlighter.regexLib.singleLineCComments,	css: 'comments' },  	// one line
+			{ regex: /\(\*[\s\S]*?\*\)/gm,								css: 'comments' },		// multiline comments (* *)
+			{ regex: /{(?!\$)[\s\S]*?}/gm,								css: 'comments' },		// multiline comments { }
+			{ regex: SyntaxHighlighter.regexLib.singleLineCComments,	css: 'comments' },		// one line
 			{ regex: SyntaxHighlighter.regexLib.singleQuotedString,		css: 'string' },		// strings
 			{ regex: /\{\$[a-zA-Z]+ .+\}/g,								css: 'color1' },		// compiler Directives and Region tags
 			{ regex: /\b[\d\.]+\b/g,									css: 'value' },			// numbers 12345

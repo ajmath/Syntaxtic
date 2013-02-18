@@ -16,13 +16,13 @@
 			' module export import define';
 
 		this.regexList = [
-			{ regex: new RegExp("[A-Z][A-Za-z0-9_]+", 'g'), 			css: 'constants' },
-			{ regex: new RegExp("\\%.+", 'gm'), 						css: 'comments' },
-			{ regex: new RegExp("\\?[A-Za-z0-9_]+", 'g'), 				css: 'preprocessor' },
-			{ regex: new RegExp("[a-z0-9_]+:[a-z0-9_]+", 'g'), 			css: 'functions' },
-			{ regex: SyntaxHighlighter.regexLib.doubleQuotedString,		css: 'string' },
-			{ regex: SyntaxHighlighter.regexLib.singleQuotedString,		css: 'string' },
-			{ regex: new RegExp(this.getKeywords(keywords),	'gm'),		css: 'keyword' }
+			{ regex: new RegExp("[A-Z][A-Za-z0-9_]+", 'g'),					css: 'constants' },
+			{ regex: new RegExp("\\%.+", 'gm'),											css: 'comments' },
+			{ regex: new RegExp("\\?[A-Za-z0-9_]+", 'g'),						css: 'preprocessor' },
+			{ regex: new RegExp("[a-z0-9_]+:[a-z0-9_]+", 'g'),			css: 'functions' },
+			{ regex: SyntaxHighlighter.regexLib.doubleQuotedString,	css: 'string' },
+			{ regex: SyntaxHighlighter.regexLib.singleQuotedString,	css: 'string' },
+			{ regex: new RegExp(this.getKeywords(keywords),	'gm'),	css: 'keyword' }
 			];
 	}
 

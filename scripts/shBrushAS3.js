@@ -7,9 +7,9 @@
 	{
 		// Created by Peter Atoria @ http://iAtoria.com
 
-		var inits 	 =  'class interface function package';
+		var inits			=	'class interface function package';
 
-		var keywords =	'-Infinity ...rest Array as AS3 Boolean break case catch const continue Date decodeURI ' +
+		var keywords	=	'-Infinity ...rest Array as AS3 Boolean break case catch const continue Date decodeURI ' +
 						'decodeURIComponent default delete do dynamic each else encodeURI encodeURIComponent escape ' +
 						'extends false final finally flash_proxy for get if implements import in include Infinity ' +
 						'instanceof int internal is isFinite isNaN isXMLName label namespace NaN native new null ' +

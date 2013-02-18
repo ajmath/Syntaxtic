@@ -45,10 +45,7 @@ sh.autoloader = function()
 
 	function getAliases(item)
 	{
-		return item.pop
-			? item
-			: item.split(/\s+/)
-			;
+		return item.pop ? item : item.split(/\s+/);
 	}
 
 	// create table of aliases and script urls
