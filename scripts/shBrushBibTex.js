@@ -12,7 +12,7 @@ SyntaxHighlighter.brushes.BibTex = function()
       { regex: /@comment([^\\"\n]|\\.)*$/gmi,                 css: 'comments'},
       { regex: SyntaxHighlighter.regexLib.singleQuotedString, css: 'string' },
       { regex: SyntaxHighlighter.regexLib.doubleQuotedString, css: 'string' },
-      { regex: /{([^\\"\n]|\\.)*}/g,                          css: 'string' },
+      { regex: /\{([^\\"\n]|\\.)*\}/g,                          css: 'string' },
           { regex: new RegExp(this.getKeywords(keywords), 'gmi'),              css: 'keyword' },
           { regex: /'[a-z][A-Za-z0-9_\-]*/g,                               css: 'color1' }, // symbols
           { regex: /(@misc|@article|@inproceedings|@book|@incollection|@techreport|@phdthesis|@mastersthesis)/gi,

@@ -52,7 +52,7 @@
 			{ regex: /\bq[qwxr]?\{[\s\S]*?\}/g,	css: 'string' }, // quote-like operators {}
 			{ regex: /\bq[qwxr]?\[[\s\S]*?\]/g,	css: 'string' }, // quote-like operators []
 			{ regex: /\bq[qwxr]?(<|&lt;)[\s\S]*?(>|&gt;)/g,	css: 'string' }, // quote-like operators <>
-			{ regex: /\bq[qwxr]?([^\w({<[])[\s\S]*?\1/g,	css: 'string' }, // quote-like operators non-paired
+			{ regex: /\bq[qwxr]?([^\w({<\[])[\s\S]*?\1/g,	css: 'string' }, // quote-like operators non-paired
 
 			{ regex: SyntaxHighlighter.regexLib.doubleQuotedString,	css: 'string' },
 			{ regex: SyntaxHighlighter.regexLib.singleQuotedString,	css: 'string' },

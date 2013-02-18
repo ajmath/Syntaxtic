@@ -43,7 +43,7 @@ SyntaxHighlighter.brushes.Latex = function()
 		{ regex: new RegExp('%.*','gm'),		css: 'comments' },		// one line comments
 		{ regex: SyntaxHighlighter.regexLib.doubleQuotedString,			css: 'string' },		// double quoted strings
 		{ regex: new RegExp('\\\\\\w*','gm'),			css: 'keyword' },		// commands
-		{ regex: new RegExp(this.getKeywords(keywords), 'gm'),			css: 'function' },		// keywords
+		{ regex: new RegExp(this.getKeywords(keywords), 'gm'),			css: 'function' }		// keywords
 		];
 };
 
