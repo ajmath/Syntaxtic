@@ -119,6 +119,17 @@
       "matches": [ "*://*/*.css",
 					"*://*/*.css?*" ],
       "run_at": "document_end"
+   },{
+      "js": [ "scripts/shCore.js", "scripts/shBrushLess.js", "langs/less.js", "content_script.js" ],
+      "matches": [ "*://*/*.less",
+               "*://*/*.less?*" ],
+      "run_at": "document_end"
+   },{
+      "js": [ "scripts/shCore.js", "scripts/shBrushSass.js", "langs/sass.js", "content_script.js" ],
+      "matches": [ "*://*/*.scss",
+               "*://*/*.scss?*", "*://*/*.sass",
+					"*://*/*.sass?*" ],
+      "run_at": "document_end"
    }, {
       "js": [ "scripts/shCore.js", "scripts/shBrushCpp.js", "langs/cpp.js", "content_script.js" ],
       "matches": [ "*://*/*.cpp",  	
