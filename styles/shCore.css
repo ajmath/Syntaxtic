@@ -60,7 +60,7 @@
 
 .syntaxhighlighter {
   width: 100% !important;
-  margin: 1em 0 1em 0 !important;
+   /*margin: 1em 0 1em 0 !important;  /*This just seems to add unnecessary whitespace at the top and bottom */ */
   position: relative !important;
   overflow: visible !important;
   font-size: 1em !important;
