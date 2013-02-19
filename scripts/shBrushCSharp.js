@@ -16,11 +16,8 @@
 
 		function fixComments(match, regexInfo)
 		{
-			var css = (match[0].indexOf("///") == 0)
-				? 'color1'
-				: 'comments'
-				;
-			
+			var css = (match[0].indexOf("///") === 0) ? 'color1': 'comments';
+
 			return [new SyntaxHighlighter.Match(match[0], match.index, css)];
 		}
 
@@ -35,9 +32,9 @@
 			{ regex: /\bpartial(?=\s+(?:class|interface|struct)\b)/g,	css: 'keyword' },			// contextual keyword: 'partial'
 			{ regex: /\byield(?=\s+(?:return|break)\b)/g,				css: 'keyword' }			// contextual keyword: 'yield'
 			];
-		
+
 		this.forHtmlScript(SyntaxHighlighter.regexLib.aspScriptTags);
-	};
+	}
 
 	Brush.prototype	= new SyntaxHighlighter.Highlighter();
 	Brush.aliases	= ['c#', 'c-sharp', 'csharp'];
@@ -45,5 +42,5 @@
 	SyntaxHighlighter.brushes.CSharp = Brush;
 
 	// CommonJS
-	typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
+	typeof(exports) !== 'undefined' ? exports.Brush = Brush : null;
 })();

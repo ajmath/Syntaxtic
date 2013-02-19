@@ -8,12 +8,12 @@
 		function getKeywordsCSS(str)
 		{
 			return '\\b([a-z_]|)' + str.replace(/ /g, '(?=:)\\b|\\b([a-z_\\*]|\\*|)') + '(?=:)\\b';
-		}
+		};
 
 		function getValuesCSS(str)
 		{
 			return '\\b' + str.replace(/ /g, '(?!-)(?!:)\\b|\\b()') + '\:\\b';
-		}
+		};
 
 		var keywords =	'ascent azimuth background-attachment background-color background-image background-position ' +
 						'background-repeat background baseline bbox border-collapse border-color border-spacing border-style border-top ' +
@@ -56,20 +56,21 @@
 			{ regex: /!important/g,										css: 'color3' },	// !important
 			{ regex: new RegExp(getKeywordsCSS(keywords), 'gm'),		css: 'keyword' },	// keywords
 			{ regex: new RegExp(getValuesCSS(values), 'g'),				css: 'value' },		// values
-			{ regex: new RegExp(this.getKeywords(fonts), 'g'),			css: 'color1' }		// fonts
+			{ regex: new RegExp(this.getKeywords(fonts), 'g'),			css: 'color1' },		// fonts
+			{ regex: /@[a-zA-Z0-9\-]+/g,			css: 'variable' }		// variables
 			];
 
 		this.forHtmlScript({
 			left: /(&lt;|<)\s*style.*?(&gt;|>)/gi,
 			right: /(&lt;|<)\/\s*style\s*(&gt;|>)/gi
 			});
-	}
+	};
 
 	Brush.prototype	= new SyntaxHighlighter.Highlighter();
-	Brush.aliases	= ['css'];
+	Brush.aliases	= ['less'];
 
-	SyntaxHighlighter.brushes.CSS = Brush;
+	SyntaxHighlighter.brushes.LESS = Brush;
 
 	// CommonJS
-	typeof(exports) !== 'undefined' ? exports.Brush = Brush : null;
+	typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
 })();

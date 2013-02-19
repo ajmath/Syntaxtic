@@ -6,7 +6,7 @@
 	function Brush()
 	{
 		// Contributed by Erik Peterson.
-	
+
 		var keywords =	'alias and BEGIN begin break case class def define_method defined do each else elsif ' +
 						'END end ensure false for if in module new next nil not or raise redo rescue retry return ' +
 						'self super then throw true undef unless until when while yield';
@@ -27,7 +27,7 @@
 			];
 
 		this.forHtmlScript(SyntaxHighlighter.regexLib.aspScriptTags);
-	};
+	}
 
 	Brush.prototype	= new SyntaxHighlighter.Highlighter();
 	Brush.aliases	= ['ruby', 'rails', 'ror', 'rb'];
@@ -35,5 +35,5 @@
 	SyntaxHighlighter.brushes.Ruby = Brush;
 
 	// CommonJS
-	typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
+	typeof(exports) !== 'undefined' ? exports.Brush = Brush : null;
 })();
