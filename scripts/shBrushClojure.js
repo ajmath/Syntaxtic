@@ -19,7 +19,7 @@ SyntaxHighlighter.brushes.Clojure = function()
       ];
 
   this.forHtmlScript(SyntaxHighlighter.regexLib.aspScriptTags);
-}
+};
 
-SyntaxHighlighter.brushes.Clojure.prototype     = new SyntaxHighlighter.Highlighter(); 
+SyntaxHighlighter.brushes.Clojure.prototype     = new SyntaxHighlighter.Highlighter();
 SyntaxHighlighter.brushes.Clojure.aliases       = ['clojure', 'Clojure', 'clj'];

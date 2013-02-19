@@ -12,11 +12,11 @@ SyntaxHighlighter.brushes.CommonLisp = function()
         { regex: new RegExp("'(\\w|-)+", 'g'), css: 'variable' },
         { regex: new RegExp(this.getKeywords(keywords), 'gmi'), css: 'keyword' },
         { regex: new RegExp(this.getKeywords(macros), 'gmi'), css: 'keyword' },
-        { regex: new RegExp(this.getKeywords(funcs), 'gmi'),css: 'functions' },
+        { regex: new RegExp(this.getKeywords(funcs), 'gmi'),css: 'functions' }
     ];
 
     this.forHtmlScript(SyntaxHighlighter.regexLib.aspScriptTags);
-}
+};
 
 SyntaxHighlighter.brushes.CommonLisp.prototype = new SyntaxHighlighter.Highlighter();
 SyntaxHighlighter.brushes.CommonLisp.aliases   = ['lisp', 'cl', 'el'];

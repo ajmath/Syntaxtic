@@ -15,7 +15,7 @@
 
 		this.regexList = [
 			{ regex: SyntaxHighlighter.regexLib.singleLineCComments,	css: 'comments' },		// one line comments
-			{ regex: /\/\*([^\*][\s\S]*)?\*\//gm,						css: 'comments' },	 	// multiline comments
+			{ regex: /\/\*([^\*][\s\S]*)?\*\//gm,						css: 'comments' },		// multiline comments
 			{ regex: /\/\*(?!\*\/)\*[\s\S]*?\*\//gm,					css: 'preprocessor' },	// documentation comments
 			{ regex: SyntaxHighlighter.regexLib.doubleQuotedString,		css: 'string' },		// strings
 			{ regex: SyntaxHighlighter.regexLib.singleQuotedString,		css: 'string' },		// strings
@@ -26,10 +26,10 @@
 			];
 
 		this.forHtmlScript({
-			left	: /(&lt;|<)%[@!=]?/g, 
-			right	: /%(&gt;|>)/g 
+			left	: /(&lt;|<)%[@!=]?/g,
+			right	: /%(&gt;|>)/g
 		});
-	};
+	}
 
 	Brush.prototype	= new SyntaxHighlighter.Highlighter();
 	Brush.aliases	= ['java'];
@@ -37,5 +37,5 @@
 	SyntaxHighlighter.brushes.Java = Brush;
 
 	// CommonJS
-	typeof(exports) != 'undefined' ? exports.Brush = Brush : null;
+	typeof(exports) !== 'undefined' ? exports.Brush = Brush : null;
 })();
