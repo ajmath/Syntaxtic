@@ -1,5 +1,5 @@
 
-toggle_element = (class_name = 'gutter') ->
+toggle_element = (class_name) ->
   element = document.getElementsByClassName(class_name)[0]
 
   if element?
@@ -8,3 +8,4 @@ toggle_element = (class_name = 'gutter') ->
     else
       element.style.display = ''
 
+toggle_element('gutter')

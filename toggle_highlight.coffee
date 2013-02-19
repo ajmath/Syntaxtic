@@ -4,4 +4,4 @@ toggle_hilight = () ->
     if stylesheet.href && stylesheet.href.match(/.*shTheme[a-zA-Z]*\.css/)
       stylesheet.disabled = !stylesheet.disabled
 
-# toggle_hilight()
+toggle_hilight()
