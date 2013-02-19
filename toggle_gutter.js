@@ -4,13 +4,15 @@ function toggle_gutter() {
 
 function toggle_element(class_name) {
   var element = document.getElementsByClassName(class_name)[0];
-  if (element.style.display === '')
-  {
-    element.style.display='none';
-  } else
-  {
-    element.style.display='';
+
+  if (typeof element !== "undefined" && element !== null) {
+    if (element.style.display === '') {
+      element.style.display='none';
+    } else {
+      element.style.display='';
+    }
   }
+
 }
 
 toggle_gutter();
