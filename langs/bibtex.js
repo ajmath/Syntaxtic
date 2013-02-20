@@ -1,1 +1,1 @@
-var brushAlias = 'bibtex';
+window.brushAlias = 'bibtex';

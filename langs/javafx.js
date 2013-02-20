@@ -1,1 +1,1 @@
-var brushAlias = "javafx";
+window.brushAlias = "javafx";

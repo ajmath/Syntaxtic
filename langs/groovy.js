@@ -1,1 +1,1 @@
-var brushAlias = "groovy";
+window.brushAlias = "groovy";

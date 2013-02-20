@@ -1,1 +1,1 @@
-var brushAlias = "xml";
+window.brushAlias = "xml";

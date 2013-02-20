@@ -1,1 +1,1 @@
-var brushAlias = 'cHeader';
+window.brushAlias = 'cHeader';

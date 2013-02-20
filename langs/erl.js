@@ -1,1 +1,1 @@
-var brushAlias = "erlang";
+window.brushAlias = "erlang";

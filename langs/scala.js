@@ -1,1 +1,1 @@
-var brushAlias = "scala";
+window.brushAlias = "scala";

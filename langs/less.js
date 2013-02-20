@@ -1,1 +1,1 @@
-var brushAlias = "less";
+window.brushAlias = "less";

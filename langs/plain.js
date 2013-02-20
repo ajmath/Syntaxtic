@@ -1,1 +1,1 @@
-var brushAlias = "plain";
+window.brushAlias = "plain";

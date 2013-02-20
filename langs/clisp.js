@@ -1,1 +1,1 @@
-var brushAlias = 'lisp';
+window.brushAlias = 'lisp';

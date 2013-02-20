@@ -1,1 +1,1 @@
-var brushAlias = "cpp";
+window.brushAlias = "cpp";

@@ -1,1 +1,1 @@
-var brushAlias = "py";
+window.brushAlias = "py";
