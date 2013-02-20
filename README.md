@@ -27,6 +27,7 @@ INSTALLING FROM DEV:
 1. git clone http://github.com/matheeeny/Syntaxtic.git
 2. cd syntaxtic
 3. cake build
+  - You need to have coffeescript installed http://coffeescript.org/#installation
 
 1. Browse to chrome://extensions/ in Chrome
 2. Uninstall any previous versions of the extension that you installed via the chrome web store
