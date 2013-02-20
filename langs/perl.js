@@ -1,1 +1,1 @@
-var brushAlias =  "perl";
+window.brushAlias =  "perl";

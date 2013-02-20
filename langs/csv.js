@@ -1,1 +1,1 @@
-var brushAlias = 'csv';
+window.brushAlias = 'csv';

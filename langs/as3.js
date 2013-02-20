@@ -1,1 +1,1 @@
-var brushAlias  = 'as3';
+window.brushAlias = 'as3';

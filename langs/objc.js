@@ -1,1 +1,1 @@
-var brushAlias = "objc";
+window.brushAlias = "objc";

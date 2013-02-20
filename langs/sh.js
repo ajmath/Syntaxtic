@@ -1,1 +1,1 @@
-var brushAlias = "bash";
+window.brushAlias = "bash";

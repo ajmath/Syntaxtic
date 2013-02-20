@@ -1,1 +1,1 @@
-var brushAlias = 'tex';
+window.brushAlias = 'tex';

@@ -1,1 +1,1 @@
-var brushAlias = 'sql';
+window.brushAlias = 'sql';

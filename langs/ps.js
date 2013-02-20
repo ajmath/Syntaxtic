@@ -1,1 +1,1 @@
-var brushAlias = 'powershell';
+window.brushAlias = 'powershell';

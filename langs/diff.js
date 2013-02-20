@@ -1,1 +1,1 @@
-var brushAlias = "diff";
+window.brushAlias = "diff";

@@ -1,1 +1,1 @@
-var brushAlias = "ruby";
+window.brushAlias = "ruby";

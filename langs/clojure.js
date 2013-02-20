@@ -1,1 +1,1 @@
-var brushAlias = "clojure";
+window.brushAlias = "clojure";

@@ -1,1 +1,1 @@
-var brushAlias = "java";
+window.brushAlias = "java";
