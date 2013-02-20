@@ -42,47 +42,22 @@ task "autobuild", "continually rebuild coffeescript files using coffee --watch",
 
 task "package", "create release zip", ->
   invoke "build"
+  fs.mkdir 'releases'
 
   origManifestText = fs.readFileSync "manifest.json"
   manifest = JSON.parse origManifestText
 
-  fs.mkdir 'releases'
-  git_log = spawn 'git', ['log', '--oneline'], true
-  wc = spawn 'wc', ['-l'], true
-
-  git_log.stdout.on 'data', (data) ->
-    wc.stdin.write(data)
-    wc.stdin.end()
-
-  git_log.on 'exit', (code) ->
-    console.log 'git log exited'
-    if code != 0
-      console.log 'git log exited with code ' + code
-    wc.stdin.end()
-
-  wc.stdout.on 'revnum', (revnum) ->
-    console.log 'Revnum:', revnum
-    write_manifest(revnum)
-
-  wc.on 'exit', (code) ->
-    if code != 0
-      console.log 'wc exited with code ' + code
+  get_revision = child_process.exec "git log --oneline | wc -l", (error, stdout, stderr) ->
+    revnum = stdout.trim()
+    if (error != null)
+      console.log('exec error: ' + error)
+    else
+      write_manifest(revnum)
+      zip_release = child_process.exec "zip -b . 'releases/Syntaxtic_v#{manifest.version}.zip' -r `ls | grep -v \"releases\|coffee\"`", (error, stdout, stderr) ->
+        if (error != null)
+          console.log('exec error: ' + error)
+        fs.writeFileSync "manifest.json", origManifestText
 
   write_manifest = (revnum) ->
     manifest.version = '3.0.' + revnum
-    fs.writeFileSync "releases/manifest.json", JSON.stringify manifest
-    copy_js_files()
-
-  copy_js_files = () ->
-    visitDirectory __dirname, (filepath) ->
-      return unless (path.extname filepath) == ".js"
-
-      directory = path.dirname filepath
-
-  # wc.stderr.on 'data', (data) ->
-  #   console.log 'wc stderr:', data
-
-  # git_log.stderr.on 'data', (data) ->
-  #   console.log 'git log stderr:', data
-# zip -b . releases/Syntaxtic_v`./.getVersion.sh`.zip -r `ls | grep -v releases`
-# crxmake.on "exit", -> fs.writeFileSync "manifest.json", origManifestText
+    fs.writeFileSync "manifest.json", JSON.stringify manifest
