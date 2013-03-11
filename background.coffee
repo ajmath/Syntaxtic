@@ -49,7 +49,7 @@ SyntaxticSettings = () ->
   )
 
 
-syntaxtic =
+chrome.extension.getBackgroundPage().syntaxtic =
   settings : new SyntaxticSettings()
 
 chrome.extension.onRequest.addListener((request, sender, sendResponse) ->
