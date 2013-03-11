@@ -1,1 +1,8 @@
 releases
+
+background.js
+content_script.js
+options.js
+popup.js
+toggle_gutter.js
+toggle_highlight.js
