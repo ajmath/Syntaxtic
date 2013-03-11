@@ -1,13 +1,13 @@
-settings = chrome.extension.getBackgroundPage().syntaxtic.settings;
+settings = chrome.extension.getBackgroundPage().syntaxtic.settings
 
 init = () ->
- chrome.tabs.getSelected null, (tab) ->
-  checkboxes = document.querySelectorAll('.clicker')
-  for box in checkboxes
-    blacklist =  settings[box.id + "Blacklist"]
-    box.addEventListener 'click', toggle
-    box.checked = blacklist.indexOf(tab.url) is -1
-
+  chrome.tabs.getSelected null, (tab) ->
+    checkboxes = document.querySelectorAll('.clicker')
+    for box in checkboxes
+      blacklist =  settings[box.id + "Blacklist"]
+      box.addEventListener 'click', toggle
+      box.checked = blacklist.indexOf(tab.url) is -1
+      
 toggle = (e) ->
   chrome.tabs.getSelected null, (tab) ->
     blacklist =  settings[e.target.id + "Blacklist"]
