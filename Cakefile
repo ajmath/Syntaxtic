@@ -42,7 +42,8 @@ task "autobuild", "continually rebuild coffeescript files using coffee --watch",
 
 task "package", "create release zip", ->
   invoke "build"
-  fs.mkdir 'releases'
+  fs.mkdir 'releases' if !fs.existsSync 'releases'
+
 
   origManifestText = fs.readFileSync "manifest.json"
   manifest = JSON.parse origManifestText
