@@ -162,6 +162,11 @@
       "matches": [ "*://*/*.cs",
 					"*://*/*.cs?*" ],
       "run_at": "document_end"
+   },  {
+      "js": [ "scripts/shCore.js", "scripts/shBrushGo.js", "langs/go.js", "content_script.js" ],
+      "matches": [ "*://*/*.go", "file:///*/*.go",
+               "*://*/*.go?*" ],
+      "run_at": "document_end"
    }, {
       "js": [ "scripts/shCore.js", "scripts/shBrushPython.js", "langs/py.js", "content_script.js" ],
       "matches": [ "*://*/*.py",
@@ -196,6 +201,7 @@
       "tabs",
       "http://*/*",
       "https://*/*",
-      "ftp://*/*"
+      "ftp://*/*",
+      "file:///*/*"
    ]
 }
