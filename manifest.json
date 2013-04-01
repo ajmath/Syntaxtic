@@ -172,6 +172,11 @@
       "matches": [ "*://*/*.py",
 					"*://*/*.py?*" ],
       "run_at": "document_end"
+   }, {
+      "js": [ "scripts/shCore.js", "scripts/shBrushCoffeeScript.js", "langs/coffee.js", "content_script.js" ],
+      "matches": [ "*://*/*.coffee",
+               "*://*/*.coffee?*" ],
+      "run_at": "document_end"
    } ],
    "description": "Performs syntax highlighting on files visited in the browser based on thier extension",
    "icons": {
