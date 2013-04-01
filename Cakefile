@@ -54,7 +54,7 @@ task "package", "create release zip", ->
       console.log('exec error: ' + error)
     else
       write_manifest(revnum)
-      zip_release = child_process.exec "zip -b . 'releases/Syntaxtic_v#{manifest.version}.zip' -r `ls | grep -v \"releases\|coffee\"`", (error, stdout, stderr) ->
+      zip_release = child_process.exec "zip -r 'releases/Syntaxtic_v#{manifest.version}.zip' . -x *.coffee *.git* *releases/* Cakefile README.md .ignore-in-package", (error, stdout, stderr) ->
         if (error != null)
           console.log('exec error: ' + error)
         fs.writeFileSync "manifest.json", origManifestText
