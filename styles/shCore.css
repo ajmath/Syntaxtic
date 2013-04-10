@@ -14,6 +14,10 @@
  * @license
  * Dual licensed under the MIT and GPL licenses.
  */
+ 
+ body {
+  background-color: #0f192a !important;
+ }
 .syntaxhighlighter a,
 .syntaxhighlighter div,
 .syntaxhighlighter code,
@@ -43,7 +47,6 @@
   right: auto !important;
   text-align: left !important;
   top: auto !important;
-  vertical-align: baseline !important;
   width: auto !important;
   box-sizing: content-box !important;
   font-family: monospace !important;
