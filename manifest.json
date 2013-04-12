@@ -79,6 +79,16 @@
           "*://*/*.plx"],
       "run_at": "document_end"
    }, {
+      "js": [ "scripts/shCore.js", "scripts/shBrushPhp.js", "langs/php.js", "content_script.js" ],
+      "matches": [ "*://*/*.php",
+               "*://*/*.php5",
+               "*://*/*.php4",
+               "*://*/*.php3",
+               "*://*/*.phps",
+               "*://*/*.phps",
+               "*://*/*.phtml" ],
+      "run_at": "document_end"
+   }, {
       "js": [ "scripts/shCore.js", "scripts/shBrushJavaFX.js", "langs/javafx.js", "content_script.js" ],
       "matches": [ "*://*/*.fx",
 					"*://*/*.fx?*" ],
