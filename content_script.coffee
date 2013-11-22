@@ -99,9 +99,12 @@ syntaxtic =
     changeFontSize = () ->
       styleElement = document.createElement('style')
       styleElement.type = 'text/css'
-      styleElement.id = 'fontSizeOverride'
+      styleElement.id = 'fontOverride'
       document.getElementsByTagName('head')[0].appendChild(styleElement)
-      newNode = document.createTextNode("body {font-size: " + settings.fontSize + " !important;}")
+      newNode = document.createTextNode(".syntaxhighlighter, .syntaxhighlighter code, .syntaxhighlighter div {\n
+        font-size: #{ settings.fontSize } !important;\n
+        font-family: '#{ settings.fontFamily }' !important;\n
+      }")
       styleElement.appendChild(newNode)
 
     applyPageSpecificSettings = () ->
