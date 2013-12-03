@@ -1,6 +1,7 @@
 <html>
 <head>
 	<script type="text/javascript" src="options.js"></script>
+    <style type="text/css" id="fontOverride"></style>
 </head>
 <body class="syntaxhighlighter">
 	<table border="0" cellpadding="0" cellspacing="0">
@@ -30,9 +31,6 @@
 			<div class="line number21 index20 alt2">21</div>
 			<div class="line number22 index21 alt1">22</div>
 			<div class="line number23 index22 alt2">23</div>
-			<div class="line number24 index23 alt1">24</div>
-			<div class="line number25 index24 alt2">25</div>
-			<div class="line number26 index25 alt1">26</div>
 		</td>
 		<td class="code"><div class="container">
 			<div class="line number3 index2 alt2"><code class="csharp comments">/***********************************************************************************************</code></div>
@@ -52,7 +50,7 @@
 			<div class="line number17 index16 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">public</code> <code class="csharp plain">Settings()</code></div>
 			<div class="line number18 index17 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">{</code></div>
 
-			<div class="line number19 index18 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">var</code> <code class="csharp plain">colorTheme = </code><select id=themeSelect name=sizeSelect >
+			<div class="line number19 index18 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">var</code> <code class="csharp plain">colorTheme = </code><select id=themeSelect name=themeSelect >
 					<option value="shThemeDefault.css" SELECTED>Default</option>
 					<option value="shThemeDjango.css">Django</option>
 					<option value="shThemeEclipse.css">Eclipse</option>
@@ -61,9 +59,8 @@
 					<option value="shThemeMDUltra.css">MDUltra</option>
 					<option value="shThemeMidnight.css">Midnight</option>
 					<option value="shThemeRDark.css">RDark</option>
-				</select><code class="csharp plain">;</code>
-			</div>
-			<div class="line number20 index19 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">var</code> <code class="csharp plain">fontSize = </code><select id=sizeSelect name=sizeSelect >
+				</select><code class="csharp plain">;</code></div>
+			<div class="line number20 index19 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">var</code> <code class="csharp plain">fontSize = </code><select id=fontSizeSelect name=fontSizeSelect>
 					<option value="xx-small">Itty Bitty</option>
 					<option value="x-small">Really Small</option>
 					<option value="small">Small</option>
@@ -71,8 +68,17 @@
 					<option value="large">Big</option>
 					<option value="x-large">Really Big</option>
 					<option value="xx-large">Gargantuan</option>
-				</select><code class="csharp plain">;</code>
-			</div>
+				</select><code class="csharp plain">;</code></div>
+			<div class="line number20 index19 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">var</code> <code class="csharp plain">fontFamily = </code><select id=fontFamilySelect name=fontFamilySelect >
+					<option value="Consolas">Consolas</option>
+					<option value="Bitstream Vera Sans Mono">Bitstream Vera Sans Mono</option>
+					<option value="Source Code Pro">Source Code Pro</option>
+					<option value="CosmicSansNeueMono">CosmicSansNeueMono</option>
+					<option value="Courier New">Courier New</option>
+					<option value="Courier">Courier</option>
+					<option value="Times New Roman">Times New Roman</option>
+					<option value="Georgia">Georgia</option>
+				</select><code class="csharp plain">;</code></div>
 			<div class="line number20 index19 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp keyword">Console</code><code class="csharp plain">.WriteLine(</code><code class="csharp value">"Syntaxtic! settings now configured."</code><code class="csharp plain">);</code></div>
 			<div class="line number21 index20 alt2"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">}</code></div>
 			<div class="line number22 index21 alt1"><code class="csharp spaces">&nbsp;&nbsp;&nbsp;</code><code class="csharp plain">}</code></div>
