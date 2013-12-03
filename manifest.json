@@ -188,7 +188,7 @@
                "*://*/*.coffee?*" ],
       "run_at": "document_end"
    } ],
-   "description": "Performs syntax highlighting on files visited in the browser based on thier extension",
+   "description": "Performs syntax highlighting on files visited in the browser based on their extension",
    "icons": {
       "128": "syntaxtic_128x128.png",
       "48": "syntaxtic_48x48.png"

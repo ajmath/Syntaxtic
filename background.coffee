@@ -8,11 +8,13 @@ SyntaxticSettings = () ->
 
   _theme = localStorage["syntaxtic.settings.theme"]
   _fontSize = localStorage["syntaxtic.settings.fontSize"]
+  _fontFamily = localStorage["syntaxtic.settings.fontFamily"]
   _gutterBlacklist = JSON.parse(localStorage["syntaxtic.settings.gutterBlacklist"])
   _highlightBlacklist = JSON.parse(localStorage["syntaxtic.settings.highlightBlacklist"])
 
   _defaultTheme = "shThemeMidnight.css"
   _defaultFontSize = "normal"
+  _defaultFontFamily = "Consolas, monospace"
   _defaultGutterBlacklist = []
   _defaultHighlightBlacklist = []
 
@@ -30,6 +32,14 @@ SyntaxticSettings = () ->
   this.__defineSetter__("fontSize", (val) ->
     _fontSize = val
     localStorage["syntaxtic.settings.fontSize"] = val
+  )
+
+  this.__defineGetter__("fontFamily", ->
+    return localStorage["syntaxtic.settings.fontFamily"] || (_fontFamily || _defaultFontFamily)
+  )
+  this.__defineSetter__("fontFamily", (val) ->
+    _fontFamily = val
+    localStorage["syntaxtic.settings.fontFamily"] = val
   )
 
   this.__defineGetter__("gutterBlacklist", ->
