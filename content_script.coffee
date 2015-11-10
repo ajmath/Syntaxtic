@@ -1,13 +1,14 @@
 settings = false
+enableLog = false
 
 chrome.extension.sendRequest {method: "getSettingsWithAction"}, (response) ->
   settings = response.settings;
 
   if syntaxtic.windowLoaded
-    console.log 'Loaded'
+    enableLog && console.log 'Loaded'
     syntaxtic.doHighlight()
   else
-    console.log 'Issuing onload'
+    enableLog && console.log 'Issuing onload'
     window.onload = () ->
       syntaxtic.windowLoaded = true
       syntaxtic.doHighlight()
@@ -18,12 +19,12 @@ syntaxtic =
     return if not settings
 
     hasHtmlContentType = () ->
-      console.log 'has html content?'
+      enableLog && console.log 'has html content?'
       result = false
       metaTags = document.getElementsByTagName('meta')
-      console.log 'Meta Tags:', metaTags
+      enableLog && console.log 'Meta Tags:', metaTags
       for tag in metaTags
-        console.log 'Tag:', tag, metaTags[tag]
+        enableLog && console.log 'Tag:', tag, metaTags[tag]
         httpEquiv = tag.httpEquiv
         content = tag.content
         continue if httpEquiv is 'undefined'
@@ -128,7 +129,7 @@ syntaxtic =
     #  MAIN
     # #########################
 
-    console.log 'Main'
+    enableLog && console.log 'Main'
     if window.brushAlias? && window.brushAlias != "" && !hasHtmlContentType()
       if(window.brushAlias == 'csv')
         beautifyCsv()
