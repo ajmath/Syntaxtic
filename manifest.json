@@ -2,36 +2,36 @@
    "content_scripts": [ {
       "js": [ "scripts/shCore.js", "scripts/shBrushLatex.js", "langs/tex.js", "content_script.js" ],
       "matches": [ "*://*/*.tex",
-				   "*://*/*.tex?*"],
+           "*://*/*.tex?*"],
       "run_at": "document_end"
    },
          {
       "js": [ "scripts/shCore.js", "scripts/shBrushObjectiveC.js", "langs/objc.js", "content_script.js" ],
       "matches": [ "*://*/*.m",
-					"*://*/*.m?*"],
+          "*://*/*.m?*"],
       "run_at": "document_end"
    },
       {
       "js": [ "scripts/shCore.js", "scripts/shBrushPlain.js", "langs/csv.js", "scripts/CsvToArray.js", "scripts/sprintf-0.7-beta1.js", "content_script.js" ],
       "matches": [ "*://*/*.csv",
-					"*://*/*.csv?*"],
+          "*://*/*.csv?*"],
       "run_at": "document_end"
    },
-      
+
    {
       "js": [ "scripts/shCore.js", "scripts/shBrushBibTex.js", "langs/bibtex.js", "content_script.js" ],
-      "matches": [ "*://*/*.bibtex",	
-				   "*://*/*.bibtex?*",
-				   "*://*/*.bib",
-				   "*://*/*.bib?*"],
+      "matches": [ "*://*/*.bibtex",
+           "*://*/*.bibtex?*",
+           "*://*/*.bib",
+           "*://*/*.bib?*"],
       "run_at": "document_end"
    },
    {
       "js": [ "scripts/shCore.js", "scripts/shBrushCommonLisp.js", "langs/clisp.js", "content_script.js" ],
-      "matches": [ "*://*/*.lisp", 	
-				   "*://*/*.lisp?*",
-				   "*://*/*.emacs",
-				   "*://*/*.emacs?*"],
+      "matches": [ "*://*/*.lisp",
+           "*://*/*.lisp?*",
+           "*://*/*.emacs",
+           "*://*/*.emacs?*"],
       "run_at": "document_end"
    },
    {
@@ -42,40 +42,40 @@
    {
       "js": [ "scripts/shCore.js", "scripts/shBrushVb.js", "langs/vb.js", "content_script.js" ],
       "matches": [ "*://*/*.vb",
-					"*://*/*.vb?*"],
+          "*://*/*.vb?*"],
       "run_at": "document_end"
    }, {
       "js": [ "scripts/shCore.js", "scripts/shBrushSql.js", "langs/sql.js", "content_script.js" ],
       "matches": [ "*://*/*.sql",
-					"*://*/*.sql?*" ],
+          "*://*/*.sql?*" ],
       "run_at": "document_end"
    }, {
       "js": [ "scripts/shCore.js", "scripts/shBrushScala.js", "langs/scala.js", "content_script.js" ],
       "matches": [ "*://*/*.scala",
-					"*://*/*.scala?*"],
+          "*://*/*.scala?*"],
       "run_at": "document_end"
    }, {
       "js": [ "scripts/shCore.js", "scripts/shBrushRuby.js", "langs/rb.js", "content_script.js" ],
       "matches": [ "*://*/*.rb",
-					"*://*/*.rb?*"],
+          "*://*/*.rb?*"],
       "run_at": "document_end"
    }, {
       "js": [ "scripts/shCore.js", "scripts/shBrushPowerShell.js", "langs/ps.js", "content_script.js" ],
-      "matches": [ "*://*/*.ps1",	
-					"*://*/*.ps1?*",
-				   "*://*/*.ps2",
-				   "*://*/*.ps2?*"],
+      "matches": [ "*://*/*.ps1",
+          "*://*/*.ps1?*",
+           "*://*/*.ps2",
+           "*://*/*.ps2?*"],
       "run_at": "document_end"
    }, {
       "js": [ "scripts/shCore.js", "scripts/shBrushPlain.js", "langs/plain.js", "content_script.js" ],
       "matches": [ "*://*/*.txt",
-					"*://*/*.txt?*"],
+          "*://*/*.txt?*"],
       "run_at": "document_end"
    }, {
       "js": [ "scripts/shCore.js", "scripts/shBrushPerl.js", "langs/perl.js", "content_script.js" ],
-      "matches": [ "*://*/*.pl", 
-					"*://*/*.pm", 
-					"*://*/*.perl",
+      "matches": [ "*://*/*.pl",
+          "*://*/*.pm",
+          "*://*/*.perl",
           "*://*/*.plx"],
       "run_at": "document_end"
    }, {
@@ -91,43 +91,43 @@
    }, {
       "js": [ "scripts/shCore.js", "scripts/shBrushJavaFX.js", "langs/javafx.js", "content_script.js" ],
       "matches": [ "*://*/*.fx",
-					"*://*/*.fx?*" ],
+          "*://*/*.fx?*" ],
       "run_at": "document_end"
    }, {
       "js": [ "scripts/shCore.js", "scripts/shBrushJava.js", "langs/java.js", "content_script.js" ],
       "matches": [ "*://*/*.java",
-					"*://*/*.java?*" ],
+          "*://*/*.java?*" ],
       "run_at": "document_end"
    }, {
       "js": [ "scripts/shCore.js", "scripts/shBrushJScript.js", "langs/js.js", "content_script.js" ],
-      "matches": [ "*://*/*.js",	
-					"*://*/*.js?*",
-					"*://*/*.json",
-					"*://*/*.json?*",
-					"*://*/*.pbxproj",
-					"*://*/*.pbxproj?*"],
+      "matches": [ "*://*/*.js",
+          "*://*/*.js?*",
+          "*://*/*.json",
+          "*://*/*.json?*",
+          "*://*/*.pbxproj",
+          "*://*/*.pbxproj?*"],
       "run_at": "document_end"
    }, {
       "js": [ "scripts/shCore.js", "scripts/shBrushGroovy.js", "langs/groovy.js", "content_script.js" ],
       "matches": [ "*://*/*.groovy",
-					"*://*/*.groovy?*"],
+          "*://*/*.groovy?*"],
       "run_at": "document_end"
    }, {
       "js": [ "scripts/shCore.js", "scripts/shBrushErlang.js", "langs/erl.js", "content_script.js" ],
       "matches": [ "*://*/*.erl",
-					"*://*/*.erl?*" ],
+          "*://*/*.erl?*" ],
       "run_at": "document_end"
    }, {
       "js": [ "scripts/shCore.js", "scripts/shBrushDiff.js", "langs/diff.js", "content_script.js" ],
-      "matches": [ "*://*/*.diff",	
-					"*://*/*.diff?*",
-					"*://*/*.patch",
-					"*://*/*.patch?*"],
+      "matches": [ "*://*/*.diff",
+          "*://*/*.diff?*",
+          "*://*/*.patch",
+          "*://*/*.patch?*"],
       "run_at": "document_end"
    }, {
       "js": [ "scripts/shCore.js", "scripts/shBrushCss.js", "langs/css.js", "content_script.js" ],
       "matches": [ "*://*/*.css",
-					"*://*/*.css?*" ],
+          "*://*/*.css?*" ],
       "run_at": "document_end"
    },{
       "js": [ "scripts/shCore.js", "scripts/shBrushLess.js", "langs/less.js", "content_script.js" ],
@@ -138,49 +138,49 @@
       "js": [ "scripts/shCore.js", "scripts/shBrushSass.js", "langs/sass.js", "content_script.js" ],
       "matches": [ "*://*/*.scss",
                "*://*/*.scss?*", "*://*/*.sass",
-					"*://*/*.sass?*" ],
+          "*://*/*.sass?*" ],
       "run_at": "document_end"
    }, {
       "js": [ "scripts/shCore.js", "scripts/shBrushCpp.js", "langs/cpp.js", "content_script.js" ],
-      "matches": [ "*://*/*.cpp",  	
-					"*://*/*.cpp?*",
-					"*://*/*.cc",
-					"*://*/*.cc?*",
-					"*://*/*.c",  
-					"*://*/*.c?*" ],
+      "matches": [ "*://*/*.cpp",
+          "*://*/*.cpp?*",
+          "*://*/*.cc",
+          "*://*/*.cc?*",
+          "*://*/*.c",
+          "*://*/*.c?*" ],
       "run_at": "document_end"
-   }, 
+   },
    {
       "js": [ "scripts/shCore.js", "scripts/shBrushCpp.js", "scripts/shBrushObjectiveC.js", "langs/cHeader.js", "content_script.js" ],
       "matches": [ "*://*/*.h",
-					"*://*/*.h?*" ],
+          "*://*/*.h?*" ],
       "run_at": "document_end"
    },{
       "js": [ "scripts/shCore.js", "scripts/shBrushBash.js", "langs/sh.js", "content_script.js" ],
       "matches": [ "*://*/*.sh",
-					"*://*/*.sh?*" ],
+          "*://*/*.sh?*" ],
       "run_at": "document_end"
    }, {
       "js": [ "scripts/shCore.js", "scripts/shBrushAS3.js", "langs/as3.js", "content_script.js" ],
-      "matches": [ "*://*/*.as", 	
-					"*://*/*.as?*",
-					"*://*/*.actionscript", 
-					"*://*/*.actionscript?*" ],
+      "matches": [ "*://*/*.as",
+          "*://*/*.as?*",
+          "*://*/*.actionscript",
+          "*://*/*.actionscript?*" ],
       "run_at": "document_end"
    }, {
       "js": [ "scripts/shCore.js", "scripts/shBrushCSharp.js", "langs/cs.js", "content_script.js" ],
       "matches": [ "*://*/*.cs",
-					"*://*/*.cs?*" ],
+          "*://*/*.cs?*" ],
       "run_at": "document_end"
    },  {
       "js": [ "scripts/shCore.js", "scripts/shBrushGo.js", "langs/go.js", "content_script.js" ],
-      "matches": [ "*://*/*.go", 
+      "matches": [ "*://*/*.go",
                "*://*/*.go?*" ],
       "run_at": "document_end"
    }, {
       "js": [ "scripts/shCore.js", "scripts/shBrushPython.js", "langs/py.js", "content_script.js" ],
       "matches": [ "*://*/*.py",
-					"*://*/*.py?*" ],
+          "*://*/*.py?*" ],
       "run_at": "document_end"
    }, {
       "js": [ "scripts/shCore.js", "scripts/shBrushCoffeeScript.js", "langs/coffee.js", "content_script.js" ],
