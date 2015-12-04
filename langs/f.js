@@ -1,0 +1,1 @@
+window.brushAlias = "f";
