@@ -58,7 +58,7 @@ syntaxtic =
         document.head.appendChild(css2)
 
         css3 = document.createElement("style")
-        css3.appendChild(document.createTextNode(".toolbar {display:none}"))
+        css3.appendChild(document.createTextNode(".syntaxhighlighter .toolbar {display:none}"))
         document.head.appendChild(css3)
 
         SyntaxHighlighter.highlight()
