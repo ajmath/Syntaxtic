@@ -11,6 +11,7 @@ SyntaxticSettings = () ->
   _fontFamily = localStorage["syntaxtic.settings.fontFamily"]
   _gutterBlacklist = JSON.parse(localStorage["syntaxtic.settings.gutterBlacklist"])
   _highlightBlacklist = JSON.parse(localStorage["syntaxtic.settings.highlightBlacklist"])
+  _disableQuickCode = localStorage["syntaxtic.settings.disableQuickCode"]
 
   _defaultTheme = "shThemeMidnight.css"
   _defaultFontSize = "normal"
@@ -56,6 +57,15 @@ SyntaxticSettings = () ->
   this.__defineSetter__("highlightBlacklist", (val) ->
     _highlightBlacklist = val
     localStorage["syntaxtic.settings.highlightBlacklist"] = JSON.stringify(val)
+  )
+
+  this.__defineGetter__("disableQuickCode", ->
+    val = localStorage["syntaxtic.settings.disableQuickCode"] || (_disableQuickCode || false)
+    return val == "true"
+  )
+  this.__defineSetter__("disableQuickCode", (val) ->
+    _disableQuickCode = val
+    localStorage["syntaxtic.settings.disableQuickCode"] = val
   )
 
 

@@ -37,6 +37,7 @@ optionChanged = () ->
   settings.theme = document.getElementById('themeSelect').value
   settings.fontSize = document.getElementById('fontSizeSelect').value
   settings.fontFamily = document.getElementById('fontFamilySelect').value
+  settings.disableQuickCode = document.getElementById('quickCodeSelect').value
 
   # apply changed theme
   document.getElementById('theme-style').href = chrome.extension.getURL("styles/" + settings.theme)
@@ -54,6 +55,7 @@ initOptionsPage = () ->
   document.getElementById('themeSelect').value = settings.theme
   document.getElementById('fontSizeSelect').value = settings.fontSize
   document.getElementById('fontFamilySelect').value = settings.fontFamily
+  document.getElementById('quickCodeSelect').value = settings.disableQuickCode
 
 document.addEventListener 'DOMContentLoaded', () ->
 
