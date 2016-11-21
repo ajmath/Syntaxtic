@@ -38,9 +38,12 @@ syntaxtic =
     highlight = () ->
       if !document.body.innerHTML.match("003ew0hdafa1119dadfa39aje")
         if document.body.firstChild != null && document.getElementsByTagName('pre')[0] == document.body.firstChild
+          classString = "brush: #{window.brushAlias}"
+          if settings.disableQuickCode
+            classString += "; quick-code: false"
           document.body.innerHTML = """
             <!-- 003ew0hdafa1119dadfa39aje -->
-            <script type="syntaxhighlighter" class="brush: #{window.brushAlias}">
+            <script type="syntaxhighlighter" class="#{classString}">
               <![CDATA[#{document.body.firstChild.innerHTML}]]>
             </script>
             """
