@@ -401,6 +401,18 @@
         "*://*/*.f90?*"
       ],
       "run_at":"document_end"
+    },
+    {
+      "js":[
+        "scripts/syntaxhighlighter.js",
+        "langs/typescript.js",
+        "content_script.js"
+      ],
+      "matches":[
+        "*://*/*.ts",
+        "*://*/*.ts?*"
+      ],
+      "run_at":"document_end"
     }
   ],
   "description":"Performs syntax highlighting on files visited in the browser based on their extension",
