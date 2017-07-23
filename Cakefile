@@ -54,11 +54,11 @@ task "package", "create release zip", ->
       console.log('exec error: ' + error)
     else
       write_manifest(revnum)
-      zip_release = child_process.exec "zip -r 'releases/Syntaxtic_v#{manifest.version}.zip' . -x \\*.coffee \\*.git\\* \\*releases\\* Cakefile README.md", (error, stdout, stderr) ->
+      zip_release = child_process.exec "zip -r 'releases/Syntaxtic_v#{manifest.version}.zip' . -x \\*.coffee \\*.git\\* \\*releases\\* Cakefile README.md node_modules\\* package.json yarn.lock", (error, stdout, stderr) ->
         if (error != null)
           console.log('exec error: ' + error)
         fs.writeFileSync "manifest.json", origManifestText
 
   write_manifest = (revnum) ->
-    manifest.version = '3.0.' + revnum
+    manifest.version = '4.0.' + revnum
     fs.writeFileSync "manifest.json", JSON.stringify manifest

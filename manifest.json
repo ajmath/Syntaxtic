@@ -2,8 +2,7 @@
   "content_scripts":[
     {
       "js":[
-        "scripts/shCore.js",
-        "scripts/shBrushLatex.js",
+        "scripts/syntaxhighlighter.js",
         "langs/tex.js",
         "content_script.js"
       ],
@@ -15,8 +14,7 @@
     },
     {
       "js":[
-        "scripts/shCore.js",
-        "scripts/shBrushObjectiveC.js",
+        "scripts/syntaxhighlighter.js",
         "langs/objc.js",
         "content_script.js"
       ],
@@ -28,8 +26,7 @@
     },
     {
       "js":[
-        "scripts/shCore.js",
-        "scripts/shBrushPlain.js",
+        "scripts/syntaxhighlighter.js",
         "langs/csv.js",
         "scripts/CsvToArray.js",
         "scripts/sprintf-0.7-beta1.js",
@@ -43,8 +40,7 @@
     },
     {
       "js":[
-        "scripts/shCore.js",
-        "scripts/shBrushBibTex.js",
+        "scripts/syntaxhighlighter.js",
         "langs/bibtex.js",
         "content_script.js"
       ],
@@ -58,8 +54,7 @@
     },
     {
       "js":[
-        "scripts/shCore.js",
-        "scripts/shBrushCommonLisp.js",
+        "scripts/syntaxhighlighter.js",
         "langs/clisp.js",
         "content_script.js"
       ],
@@ -73,8 +68,7 @@
     },
     {
       "js":[
-        "scripts/shCore.js",
-        "scripts/shBrushClojure.js",
+        "scripts/syntaxhighlighter.js",
         "langs/clojure.js",
         "content_script.js"
       ],
@@ -85,8 +79,7 @@
     },
     {
       "js":[
-        "scripts/shCore.js",
-        "scripts/shBrushVb.js",
+        "scripts/syntaxhighlighter.js",
         "langs/vb.js",
         "content_script.js"
       ],
@@ -98,8 +91,7 @@
     },
     {
       "js":[
-        "scripts/shCore.js",
-        "scripts/shBrushSql.js",
+        "scripts/syntaxhighlighter.js",
         "langs/sql.js",
         "content_script.js"
       ],
@@ -111,8 +103,7 @@
     },
     {
       "js":[
-        "scripts/shCore.js",
-        "scripts/shBrushScala.js",
+        "scripts/syntaxhighlighter.js",
         "langs/scala.js",
         "content_script.js"
       ],
@@ -124,8 +115,7 @@
     },
     {
       "js":[
-        "scripts/shCore.js",
-        "scripts/shBrushRuby.js",
+        "scripts/syntaxhighlighter.js",
         "langs/rb.js",
         "content_script.js"
       ],
@@ -137,8 +127,7 @@
     },
     {
       "js":[
-        "scripts/shCore.js",
-        "scripts/shBrushPowerShell.js",
+        "scripts/syntaxhighlighter.js",
         "langs/ps.js",
         "content_script.js"
       ],
@@ -152,8 +141,7 @@
     },
     {
       "js":[
-        "scripts/shCore.js",
-        "scripts/shBrushPlain.js",
+        "scripts/syntaxhighlighter.js",
         "langs/plain.js",
         "content_script.js"
       ],
@@ -165,8 +153,7 @@
     },
     {
       "js":[
-        "scripts/shCore.js",
-        "scripts/shBrushPerl.js",
+        "scripts/syntaxhighlighter.js",
         "langs/perl.js",
         "content_script.js"
       ],
@@ -180,8 +167,7 @@
     },
     {
       "js":[
-        "scripts/shCore.js",
-        "scripts/shBrushPhp.js",
+        "scripts/syntaxhighlighter.js",
         "langs/php.js",
         "content_script.js"
       ],
@@ -198,8 +184,7 @@
     },
     {
       "js":[
-        "scripts/shCore.js",
-        "scripts/shBrushJavaFX.js",
+        "scripts/syntaxhighlighter.js",
         "langs/javafx.js",
         "content_script.js"
       ],
@@ -211,8 +196,7 @@
     },
     {
       "js":[
-        "scripts/shCore.js",
-        "scripts/shBrushJava.js",
+        "scripts/syntaxhighlighter.js",
         "langs/java.js",
         "content_script.js"
       ],
@@ -224,8 +208,7 @@
     },
     {
       "js":[
-        "scripts/shCore.js",
-        "scripts/shBrushJScript.js",
+        "scripts/syntaxhighlighter.js",
         "langs/js.js",
         "content_script.js"
       ],
@@ -241,8 +224,7 @@
     },
     {
       "js":[
-        "scripts/shCore.js",
-        "scripts/shBrushGroovy.js",
+        "scripts/syntaxhighlighter.js",
         "langs/groovy.js",
         "content_script.js"
       ],
@@ -254,8 +236,7 @@
     },
     {
       "js":[
-        "scripts/shCore.js",
-        "scripts/shBrushErlang.js",
+        "scripts/syntaxhighlighter.js",
         "langs/erl.js",
         "content_script.js"
       ],
@@ -267,8 +248,7 @@
     },
     {
       "js":[
-        "scripts/shCore.js",
-        "scripts/shBrushDiff.js",
+        "scripts/syntaxhighlighter.js",
         "langs/diff.js",
         "content_script.js"
       ],
@@ -282,8 +262,7 @@
     },
     {
       "js":[
-        "scripts/shCore.js",
-        "scripts/shBrushCss.js",
+        "scripts/syntaxhighlighter.js",
         "langs/css.js",
         "content_script.js"
       ],
@@ -295,8 +274,7 @@
     },
     {
       "js":[
-        "scripts/shCore.js",
-        "scripts/shBrushLess.js",
+        "scripts/syntaxhighlighter.js",
         "langs/less.js",
         "content_script.js"
       ],
@@ -308,8 +286,7 @@
     },
     {
       "js":[
-        "scripts/shCore.js",
-        "scripts/shBrushSass.js",
+        "scripts/syntaxhighlighter.js",
         "langs/sass.js",
         "content_script.js"
       ],
@@ -323,8 +300,7 @@
     },
     {
       "js":[
-        "scripts/shCore.js",
-        "scripts/shBrushCpp.js",
+        "scripts/syntaxhighlighter.js",
         "langs/cpp.js",
         "content_script.js"
       ],
@@ -340,9 +316,7 @@
     },
     {
       "js":[
-        "scripts/shCore.js",
-        "scripts/shBrushCpp.js",
-        "scripts/shBrushObjectiveC.js",
+        "scripts/syntaxhighlighter.js",
         "langs/cHeader.js",
         "content_script.js"
       ],
@@ -354,8 +328,7 @@
     },
     {
       "js":[
-        "scripts/shCore.js",
-        "scripts/shBrushBash.js",
+        "scripts/syntaxhighlighter.js",
         "langs/sh.js",
         "content_script.js"
       ],
@@ -367,8 +340,7 @@
     },
     {
       "js":[
-        "scripts/shCore.js",
-        "scripts/shBrushAS3.js",
+        "scripts/syntaxhighlighter.js",
         "langs/as3.js",
         "content_script.js"
       ],
@@ -382,8 +354,7 @@
     },
     {
       "js":[
-        "scripts/shCore.js",
-        "scripts/shBrushCSharp.js",
+        "scripts/syntaxhighlighter.js",
         "langs/cs.js",
         "content_script.js"
       ],
@@ -395,8 +366,7 @@
     },
     {
       "js":[
-        "scripts/shCore.js",
-        "scripts/shBrushGo.js",
+        "scripts/syntaxhighlighter.js",
         "langs/go.js",
         "content_script.js"
       ],
@@ -408,8 +378,7 @@
     },
     {
       "js":[
-        "scripts/shCore.js",
-        "scripts/shBrushPython.js",
+        "scripts/syntaxhighlighter.js",
         "langs/py.js",
         "content_script.js"
       ],
@@ -421,8 +390,7 @@
     },
     {
       "js":[
-        "scripts/shCore.js",
-        "scripts/shBrushFortran.js",
+        "scripts/syntaxhighlighter.js",
         "langs/f.js",
         "content_script.js"
       ],
@@ -436,14 +404,25 @@
     },
     {
       "js":[
-        "scripts/shCore.js",
-        "scripts/shBrushCoffeeScript.js",
-        "langs/coffee.js",
+        "scripts/syntaxhighlighter.js",
+        "langs/typescript.js",
         "content_script.js"
       ],
       "matches":[
-        "*://*/*.coffee",
-        "*://*/*.coffee?*"
+        "*://*/*.ts",
+        "*://*/*.ts?*"
+      ],
+      "run_at":"document_end"
+    },
+    {
+      "js":[
+        "scripts/syntaxhighlighter.js",
+        "langs/swift.js",
+        "content_script.js"
+      ],
+      "matches":[
+        "*://*/*.swift",
+        "*://*/*.swift?*"
       ],
       "run_at":"document_end"
     }

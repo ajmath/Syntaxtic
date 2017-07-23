@@ -36,35 +36,30 @@ syntaxtic =
       return result
 
     highlight = () ->
-      if !document.body.innerHTML.match("003ew0hdafa1119dadfa39aje")
-        if document.body.firstChild != null && document.getElementsByTagName('pre')[0] == document.body.firstChild
-          classString = "brush: #{window.brushAlias}"
-          if settings.disableQuickCode
-            classString += "; quick-code: false"
-          document.body.innerHTML = """
-            <!-- 003ew0hdafa1119dadfa39aje -->
-            <script type="syntaxhighlighter" class="#{classString}">
-              <![CDATA[#{document.body.firstChild.innerHTML}]]>
-            </script>
-            """
+      if document.body.innerHTML.match("003ew0hdafa1119dadfa39aje") # this is gross
+        return
+      if document.body.firstChild != null && document.getElementsByTagName('pre')[0] == document.body.firstChild
+        classString = "brush: #{window.brushAlias}"
+        if settings.disableQuickCode
+          classString += "; quick-code: false"
+        document.body.innerHTML = """
+          <!-- 003ew0hdafa1119dadfa39aje -->
+          <script type="text/syntaxhighlighter" class="#{classString}">
+            <![CDATA[#{document.body.firstChild.innerHTML}]]>
+          </script>
+          """
 
-        css1 = document.createElement("link")
-        css1.href = chrome.extension.getURL("styles/shCore.css")
-        css1.type = "text/css"
-        css1.rel = "stylesheet"
-        document.head.appendChild(css1)
+      css2 = document.createElement("link")
+      css2.href = chrome.extension.getURL("styles/" + settings.theme)
+      css2.type = "text/css"
+      css2.rel = "stylesheet"
+      document.head.appendChild(css2)
 
-        css2 = document.createElement("link")
-        css2.href = chrome.extension.getURL("styles/" + settings.theme)
-        css2.type = "text/css"
-        css2.rel = "stylesheet"
-        document.head.appendChild(css2)
+      css3 = document.createElement("style")
+      css3.appendChild(document.createTextNode(".syntaxhighlighter .toolbar {display:none}"))
+      document.head.appendChild(css3)
 
-        css3 = document.createElement("style")
-        css3.appendChild(document.createTextNode(".syntaxhighlighter .toolbar {display:none}"))
-        document.head.appendChild(css3)
-
-        SyntaxHighlighter.highlight()
+      SyntaxHighlighter.highlight()
 
     beautifyCsv = () ->
       strData = document.body.firstChild.innerHTML

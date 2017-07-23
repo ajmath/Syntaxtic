@@ -6,3 +6,4 @@ options.js
 popup.js
 toggle_gutter.js
 toggle_highlight.js
+node_modules/

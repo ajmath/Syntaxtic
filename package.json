@@ -1,0 +1,13 @@
+{
+  "name": "Syntaxtic",
+  "version": "4.0.0",
+  "description": "Chrome extension for syntax highlighting",
+  "main": "index.js",
+  "repository": "git@github.com:ajmath/Syntaxtic.git",
+  "author": "Andrew Matheny <andrew.j.matheny@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "cake": "^0.1.1",
+    "coffeescript": "^1.12.7"
+  }
+}
