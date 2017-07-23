@@ -413,6 +413,18 @@
         "*://*/*.ts?*"
       ],
       "run_at":"document_end"
+    },
+    {
+      "js":[
+        "scripts/syntaxhighlighter.js",
+        "langs/swift.js",
+        "content_script.js"
+      ],
+      "matches":[
+        "*://*/*.swift",
+        "*://*/*.swift?*"
+      ],
+      "run_at":"document_end"
     }
   ],
   "description":"Performs syntax highlighting on files visited in the browser based on their extension",
