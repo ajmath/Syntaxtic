@@ -1,17 +1,17 @@
 Syntaxtic
 =========
 
-INSTALL FROM CHROME WEBSTORE:
+INSTALL FROM CHROME WEBSTORE
 ----------------------------
   https://chrome.google.com/extensions/detail/cgjalgdhmbpaacnnejmodfinclbdgaci
 
-INSTALLING FROM DEV:
+INSTALLING FROM DEV
 --------------------
 
-1. git clone http://github.com/matheeeny/Syntaxtic.git
-2. cd syntaxtic
-3. cake build
-  - You need to have coffeescript installed http://coffeescript.org/#installation
+1. `git clone http://github.com/matheeeny/Syntaxtic.git`
+1. `cd syntaxtic`
+1. `yarn install`
+1. `cake autobuild`
 
 1. Browse to chrome://extensions/ in Chrome
 2. Uninstall any previous versions of the extension that you installed via the chrome web store
