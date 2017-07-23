@@ -60,5 +60,5 @@ task "package", "create release zip", ->
         fs.writeFileSync "manifest.json", origManifestText
 
   write_manifest = (revnum) ->
-    manifest.version = '3.0.' + revnum
+    manifest.version = '4.0.' + revnum
     fs.writeFileSync "manifest.json", JSON.stringify manifest
