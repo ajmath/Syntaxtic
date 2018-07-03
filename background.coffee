@@ -15,7 +15,7 @@ SyntaxticSettings = () ->
 
   _defaultTheme = "shThemeMidnight.css"
   _defaultFontSize = "normal"
-  _defaultFontFamily = "Consolas, monospace"
+  _defaultFontFamily = "Consolas"
   _defaultGutterBlacklist = []
   _defaultHighlightBlacklist = []
 
