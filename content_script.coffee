@@ -103,6 +103,7 @@ syntaxtic =
       newNode = document.createTextNode(".syntaxhighlighter, .syntaxhighlighter code, .syntaxhighlighter div {\n
         font-size: #{ settings.fontSize } !important;\n
         font-family: '#{ settings.fontFamily }' !important;\n
+        line-height: #{ settings.lineHeight }em !important;\n
       }")
       styleElement.appendChild(newNode)
 

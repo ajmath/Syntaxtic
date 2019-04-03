@@ -9,6 +9,7 @@ SyntaxticSettings = () ->
   _theme = localStorage["syntaxtic.settings.theme"]
   _fontSize = localStorage["syntaxtic.settings.fontSize"]
   _fontFamily = localStorage["syntaxtic.settings.fontFamily"]
+  _lineHeight = localStorage["syntaxtic.settings.lineHeight"]
   _gutterBlacklist = JSON.parse(localStorage["syntaxtic.settings.gutterBlacklist"])
   _highlightBlacklist = JSON.parse(localStorage["syntaxtic.settings.highlightBlacklist"])
   _disableQuickCode = localStorage["syntaxtic.settings.disableQuickCode"]
@@ -16,6 +17,7 @@ SyntaxticSettings = () ->
   _defaultTheme = "shThemeMidnight.css"
   _defaultFontSize = "normal"
   _defaultFontFamily = "Consolas, monospace"
+  _defaultLineHeight = 1.6
   _defaultGutterBlacklist = []
   _defaultHighlightBlacklist = []
 
@@ -41,6 +43,14 @@ SyntaxticSettings = () ->
   this.__defineSetter__("fontFamily", (val) ->
     _fontFamily = val
     localStorage["syntaxtic.settings.fontFamily"] = val
+  )
+
+  this.__defineGetter__("lineHeight", ->
+    return localStorage["syntaxtic.settings.lineHeight"] || (_lineHeight || _defaultLineHeight)
+  )
+  this.__defineSetter__("lineHeight", (val) ->
+    _lineHeight = val
+    localStorage["syntaxtic.settings.lineHeight"] = val
   )
 
   this.__defineGetter__("gutterBlacklist", ->
