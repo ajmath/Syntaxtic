@@ -40,7 +40,7 @@ optionChanged = () ->
   style = document.getElementById('fontOverride')
   style.innerHTML = ".syntaxhighlighter, .syntaxhighlighter code, .syntaxhighlighter div {\n
     font-size: #{ settings.fontSize } !important;\n
-    font-family: '#{ settings.fontFamily }' !important;\n
+    font-family: '#{ settings.fontFamily }', monospace !important;\n
     line-height: #{ settings.lineHeight }em !important;\n
   }\n"
   style.innerHTML += ".syntaxhighlighter select {\n
